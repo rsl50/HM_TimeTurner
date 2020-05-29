@@ -10,417 +10,481 @@
         android:id="@+id/title_classes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="32dp"
         android:text="Classes"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/title_nonclasses"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/class_11"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
-        android:hint="00"
+        android:hint="000"
         android:inputType="numberDecimal"
         android:maxWidth="20dp"
-        android:maxLength="2"
-        android:textSize="20sp"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/title_classes"
         app:layout_constraintTop_toBottomOf="@+id/title_classes"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="99" />
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_12"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/class_11"
         app:layout_constraintStart_toEndOf="@+id/class_11"
         app:layout_constraintTop_toTopOf="@+id/class_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_13"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/class_12"
         app:layout_constraintStart_toEndOf="@+id/class_12"
         app:layout_constraintTop_toTopOf="@+id/class_12"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_14"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_13"
         app:layout_constraintTop_toTopOf="@+id/class_13"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_21"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/class_11"
         app:layout_constraintTop_toBottomOf="@+id/class_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_22"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_21"
         app:layout_constraintTop_toBottomOf="@+id/class_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_23"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_22"
         app:layout_constraintTop_toBottomOf="@+id/class_12"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_24"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_23"
         app:layout_constraintTop_toBottomOf="@+id/class_13"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_31"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/class_21"
         app:layout_constraintTop_toBottomOf="@+id/class_21"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_32"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_31"
         app:layout_constraintTop_toBottomOf="@+id/class_21"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_33"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_32"
         app:layout_constraintTop_toBottomOf="@+id/class_22"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_34"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_33"
         app:layout_constraintTop_toBottomOf="@+id/class_23"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_41"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/class_31"
         app:layout_constraintTop_toBottomOf="@+id/class_31"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_42"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_41"
         app:layout_constraintTop_toBottomOf="@+id/class_31"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_43"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_42"
         app:layout_constraintTop_toBottomOf="@+id/class_32"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/class_44"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/class_43"
         app:layout_constraintTop_toBottomOf="@+id/class_33"
-        tools:text="99"/>
+        tools:text="9.99" />
 
 
     <TextView
         android:id="@+id/title_nonclasses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="124dp"
         android:text="Não Classes"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/title_classes"
-        app:layout_constraintTop_toTopOf="@+id/title_classes" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/nonclass_11"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
-        android:hint="00"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/title_nonclasses"
         app:layout_constraintTop_toBottomOf="@+id/title_nonclasses"
-        tools:text="99" />
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_12"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/nonclass_11"
         app:layout_constraintStart_toEndOf="@+id/nonclass_11"
         app:layout_constraintTop_toTopOf="@+id/nonclass_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_13"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/nonclass_12"
         app:layout_constraintStart_toEndOf="@+id/nonclass_12"
         app:layout_constraintTop_toTopOf="@+id/nonclass_12"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_14"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_13"
         app:layout_constraintTop_toTopOf="@+id/nonclass_13"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_21"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/nonclass_11"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_22"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_21"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_23"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_22"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_12"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_24"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_23"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_13"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_31"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/nonclass_21"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_21"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_32"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_31"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_21"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_33"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_32"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_22"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_34"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_33"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_23"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_41"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/nonclass_31"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_31"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_42"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_41"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_31"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_43"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_42"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_32"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/nonclass_44"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_43"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_33"
-        tools:text="99"/>
+        tools:text="9.99" />
 
 
     <TextView
@@ -434,197 +498,241 @@
 
     <EditText
         android:id="@+id/points_11"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/title_points"
         app:layout_constraintTop_toBottomOf="@+id/title_points"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_12"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/points_11"
         app:layout_constraintStart_toEndOf="@+id/points_11"
         app:layout_constraintTop_toTopOf="@+id/points_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_13"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/points_12"
         app:layout_constraintStart_toEndOf="@+id/points_12"
         app:layout_constraintTop_toTopOf="@+id/points_12"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_14"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_13"
         app:layout_constraintTop_toTopOf="@+id/points_13"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_21"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/points_11"
         app:layout_constraintTop_toBottomOf="@+id/points_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_22"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_21"
         app:layout_constraintTop_toBottomOf="@+id/points_11"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_23"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_22"
         app:layout_constraintTop_toBottomOf="@+id/points_12"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_24"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_23"
         app:layout_constraintTop_toBottomOf="@+id/points_13"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_31"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/points_21"
         app:layout_constraintTop_toBottomOf="@+id/points_21"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_32"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_31"
         app:layout_constraintTop_toBottomOf="@+id/points_21"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_33"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_32"
         app:layout_constraintTop_toBottomOf="@+id/points_22"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_34"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_33"
         app:layout_constraintTop_toBottomOf="@+id/points_23"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_41"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/points_31"
         app:layout_constraintTop_toBottomOf="@+id/points_31"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_42"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_41"
         app:layout_constraintTop_toBottomOf="@+id/points_31"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_43"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_42"
         app:layout_constraintTop_toBottomOf="@+id/points_32"
-        tools:text="99"/>
+        tools:text="9.99" />
 
     <EditText
         android:id="@+id/points_44"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
         android:ems="10"
+        android:hint="000"
         android:inputType="numberDecimal"
-        android:maxLength="2"
-        android:hint="00"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/points_43"
         app:layout_constraintTop_toBottomOf="@+id/points_33"
-        tools:text="99"/>
+        tools:text="9.99" />
+
+    <Button
+        android:id="@+id/button_run"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="256dp"
+        android:text="magick!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nonclass_44"
+        app:layout_constraintStart_toStartOf="@+id/nonclass_41"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
