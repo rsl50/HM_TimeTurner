@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="32dp"
-        android:text="Classes"
+        android:text="Aulas"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -291,7 +291,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="124dp"
-        android:text="Não Classes"
+        android:text="Não Aulas"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -771,7 +771,7 @@
         android:id="@+id/button_clear_classes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zerar Classes"
+        android:text="Zerar Aulas"
         app:layout_constraintStart_toStartOf="@+id/button_run"
         app:layout_constraintTop_toBottomOf="@+id/button_run" />
 
@@ -779,7 +779,7 @@
         android:id="@+id/button_clear_nonclasses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zerar Não Classes"
+        android:text="Zerar Não Aulas"
         app:layout_constraintStart_toStartOf="@+id/button_clear_classes"
         app:layout_constraintTop_toBottomOf="@+id/button_clear_classes" />
 
