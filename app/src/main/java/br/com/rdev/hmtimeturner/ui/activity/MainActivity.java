@@ -12,6 +12,10 @@ import android.widget.TextView;
 import java.util.Collections;
 
 import br.com.rdev.hmtimeturner.R;
+import br.com.rdev.hmtimeturner.model.Calculator;
+
+import static br.com.rdev.hmtimeturner.model.Calculator.PATTERN_1;
+import static br.com.rdev.hmtimeturner.model.Calculator.TRIPLES;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,21 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText[][] classes;
     private EditText[][] nonClasses;
     private EditText[][] pointsForClasses;
-
-
-    public static final double[][] PATTERN_1 = new double[][]{
-            {1, 1, 1, 1},
-            {1, 1, 0, 0},
-            {1, 0, 1, 0},
-            {1, 0, 0, 1},
-    };
-
-
-    public static final double SINGLES = 60;
-    public static final double DOUBLES = 140;
-    public static final double SPECIAL = 215;
-    public static final double TRIPLES = 250;
-
+    private Calculator calculator;
 
 
     @Override
@@ -57,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         hoursRequiredValue = findViewById(R.id.value_hours);
         minPointsPerHourValue = findViewById(R.id.value_minPointsPerHour);
         expectedPointsPerHourValue = findViewById(R.id.value_expectedPointsPerHour);
+
+        calculator = new Calculator();
 
         initializeEditTexts();
         configureButtons();
@@ -87,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Set arrays using user input values
                 setBaseArraysValues(classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
-                double timeRequired = calculateArraysWithPattern(PATTERN_1, classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses, classesTimesInPattern, nonClassesTimesOutPattern, pointsInPattern, pointsOutPattern);
+                double timeRequired = calculator.calculateArraysWithPattern(calculator.getTestPattern(2), classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses, classesTimesInPattern, nonClassesTimesOutPattern, pointsInPattern, pointsOutPattern);
 
                 //Display arrays
                 logArray(classesTimes, "Horas Aulas");
@@ -99,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 logArray(pointsInPattern, "Mímino Pontos no Padrão");
                 logArray(pointsOutPattern, "Pontos Fora no Padrão");
 
-                double minPoints = sumArrayValues(pointsInPattern) + TRIPLES;
-                double maxPoints = sumArrayValues(pointsInPattern) + sumArrayValues(pointsOutPattern) + TRIPLES;
+                double minPoints = calculator.sumArrayValues(pointsInPattern) + TRIPLES;
+                double maxPoints = calculator.sumArrayValues(pointsInPattern) + calculator.sumArrayValues(pointsOutPattern) + TRIPLES;
                 double minPointsPerHour = minPoints/timeRequired;
                 double expectedPointsPerHour = maxPoints/timeRequired;
 
@@ -150,34 +142,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private double calculateArraysWithPattern(double[][] pattern, double[][] classesTimes, double[][] nonClassesTimes, double[][] pointsClasses, double[][] pointsNonClasses, double[][] classesTimesInPattern, double[][] nonClassesTimesOutPattern, double[][] pointsInPattern, double[][] pointsOutPattern) {
-        // Set time arrays using a given pattern
-        for (int row = 0; row < 4; row++) {
-            for (int column = 0; column < 4; column++) {
-                if (pattern[row][column] != 0) {
-                    classesTimesInPattern[row][column] = classesTimes[row][column];
-                    nonClassesTimesOutPattern[row][column] = nonClassesTimes[row][column];
-                }
-            }
-        }
 
-        // Calculate the required time for a given pattern, using the sum of all required classes times plus the highest time value of a non class activity
-        double timeRequired = Math.max(sumArrayValues(classesTimesInPattern), getBiggestValue(nonClassesTimesOutPattern));
-
-        // Set points arrays according to a given pattern
-        for (int row = 0; row < 4; row++) {
-            for (int column = 0; column < 4; column++) {
-                if (pattern[row][column] != 0) {
-                    pointsInPattern[row][column] = pointsClasses[row][column];
-                } else {
-                    if (nonClassesTimes[row][column] <= timeRequired) {
-                        pointsOutPattern[row][column] = pointsNonClasses[row][column];
-                    }
-                }
-            }
-        }
-        return timeRequired;
-    }
 
     private void logArray (double[][] array, String mensagem) {
         Log.d("HP",mensagem);
@@ -187,33 +152,6 @@ public class MainActivity extends AppCompatActivity {
                     "[" + String.format("%.2f", array[row][2]) + "]" +
                     "[" + String.format("%.2f", array[row][3]) + "]");
         }
-    }
-
-
-    private Double sumArrayValues(double[][] array) {
-        double sum = 0;
-
-        for (int row = 0; row < 4; row++) {
-            for (int column = 0; column < 4; column++) {
-                sum += array[row][column];
-            }
-        }
-
-        return sum;
-    }
-
-    private Double getBiggestValue(double[][] array) {
-        double value = 0;
-
-        for (int row = 0; row < 4; row++) {
-            for (int column = 0; column < 4; column++) {
-                if (array[row][column] > value) {
-                    value = array[row][column];
-                }
-            }
-        }
-
-        return value;
     }
 
     private void setBaseArraysValues(double[][] classesTimes, double[][] nonClassesTimes, double[][] pointsClasses, double[][] pointsNonClasses) {
@@ -230,15 +168,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setArrayValues(double[][] classTimeRequired, int row, int column, EditText[][] editTextArray, String s) {
-        try {
-            double classesHoursValue = Double.parseDouble(editTextArray[row][column].getText().toString());
-            //Log.d("HP", s + String.format("%.2f", classesHoursValue));
-            classTimeRequired[row][column] = classesHoursValue;
-        } catch (NumberFormatException nfe) {
-            System.out.println("Could not parse " + nfe);
-        }
-    }
 
     private double getEditTextValue (int row, int column, EditText[][] editTextArray) {
         double value = 0;
