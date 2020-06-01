@@ -1,5 +1,6 @@
 package br.com.rdev.hmtimeturner.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.rdev.hmtimeturner.R;
 import br.com.rdev.hmtimeturner.model.Calculator;
+import br.com.rdev.hmtimeturner.model.Pattern;
 
 import static br.com.rdev.hmtimeturner.model.Calculator.PATTERN_QTY;
 import static br.com.rdev.hmtimeturner.model.Calculator.TRIPLES;
@@ -154,13 +156,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("HP", "Melhor Padrão Special: " +bestSpecialPattern+ "| Pontos/hora Esperados: "+bestSpecial);
 
 
-
-
                 minPointsValue.setText(String.format("%.0f", minPoints));
                 maxPointsValue.setText(String.format("%.0f", maxPoints));
                 hoursRequiredValue.setText(String.format("%.2f", timeRequired));
                 minPointsPerHourValue.setText(String.format("%.2f", minPointsPerHour));
                 expectedPointsPerHourValue.setText(String.format("%.2f", expectedPointsPerHour));
+
+
+                Intent intent = new Intent(MainActivity.this, ListResultsActivity.class);
+                Pattern p5 = new Pattern("Single", "pattern_1", bestSingle);
+                intent.putExtra("result", p5);
+                startActivity(intent);
             }
         });
 

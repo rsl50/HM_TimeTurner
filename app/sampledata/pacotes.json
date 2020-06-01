@@ -1,0 +1,40 @@
+{
+  "pacotes": [
+    {
+      "pontos_esperados": "28.43",
+      "imagem": "@drawable/pattern_1",
+      "tipo": "Single",
+      "pontos_max": "455"
+    },
+    {
+      "pontos_esperados": "28.43",
+      "imagem": "@drawable/pattern_1",
+      "tipo": "Single",
+      "pontos_max": "455"
+    },
+    {
+      "pontos_esperados": "28.43",
+      "imagem": "@drawable/pattern_1",
+      "tipo": "Single",
+      "pontos_max": "455"
+    },
+    {
+      "pontos_esperados": "28.43",
+      "imagem": "@drawable/pattern_1",
+      "tipo": "Single",
+      "pontos_max": "455"
+    },
+    {
+      "pontos_esperados": "28.43",
+      "imagem": "@drawable/pattern_1",
+      "tipo": "Single",
+      "pontos_max": "455"
+    },
+    {
+      "pontos_esperados": "28.43",
+      "imagem": "@drawable/pattern_1",
+      "tipo": "Single",
+      "pontos_max": "455"
+    }
+  ]
+}

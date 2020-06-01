@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="br.com.rdev.hmtimeturner.ui.activity.MainActivity">
+        <activity
+            android:name=".ui.activity.ListResultsActivity"
+            android:label="@string/title_activity_results"
+            android:parentActivityName=".ui.activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.rdev.hmtimeturner.ui.activity.MainActivity" />
+        </activity>
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
