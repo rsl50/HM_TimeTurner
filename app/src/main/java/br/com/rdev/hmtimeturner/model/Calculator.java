@@ -4,357 +4,350 @@ import android.widget.EditText;
 
 public class Calculator {
 
-    public static final double[][] PATTERN_1 = new double[][]{
+    public static final int[][] PATTERN_1 = new int[][]{
             {1, 1, 1, 1},
             {1, 1, 0, 0},
             {1, 0, 1, 0},
             {1, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_2 = new double[][]{
+    public static final int[][] PATTERN_2 = new int[][]{
             {1, 1, 1, 1},
             {0, 0, 1, 1},
             {0, 1, 0, 1},
             {1, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_3 = new double[][]{
+    public static final int[][] PATTERN_3 = new int[][]{
             {1, 1, 0, 0},
             {1, 1, 1, 1},
             {0, 1, 1, 0},
             {0, 1, 0, 1},
     };
 
-    public static final double[][] PATTERN_4 = new double[][]{
+    public static final int[][] PATTERN_4 = new int[][]{
             {0, 0, 1, 1},
             {1, 1, 1, 1},
             {0, 1, 1, 0},
             {1, 0, 1, 0},
     };
 
-    public static final double[][] PATTERN_5 = new double[][]{
+    public static final int[][] PATTERN_5 = new int[][]{
             {0, 1, 0, 1},
             {0, 1, 1, 0},
             {1, 1, 1, 1},
             {1, 1, 0, 0},
     };
 
-    public static final double[][] PATTERN_6 = new double[][]{
+    public static final int[][] PATTERN_6 = new int[][]{
             {1, 0, 1, 0},
             {0, 1, 1, 0},
             {1, 1, 1, 1},
             {0, 0, 1, 1},
     };
 
-    public static final double[][] PATTERN_7 = new double[][]{
+    public static final int[][] PATTERN_7 = new int[][]{
             {1, 0, 0, 1},
             {0, 1, 0, 1},
             {0, 0, 1, 1},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_8 = new double[][]{
+    public static final int[][] PATTERN_8 = new int[][]{
             {1, 0, 0, 1},
             {1, 0, 1, 0},
             {1, 1, 0, 0},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_9 = new double[][]{
+    public static final int[][] PATTERN_9 = new int[][]{
             {1, 1, 1, 1},
             {1, 0, 0, 0},
             {1, 0, 0, 0},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_10 = new double[][]{
+    public static final int[][] PATTERN_10 = new int[][]{
             {1, 1, 1, 1},
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {0, 1, 0, 0},
     };
 
-    public static final double[][] PATTERN_11 = new double[][]{
+    public static final int[][] PATTERN_11 = new int[][]{
             {1, 1, 1, 1},
             {0, 0, 1, 0},
             {0, 0, 1, 0},
             {0, 0, 1, 0},
     };
 
-    public static final double[][] PATTERN_12 = new double[][]{
+    public static final int[][] PATTERN_12 = new int[][]{
             {1, 1, 1, 1},
             {0, 0, 0, 1},
             {0, 0, 0, 1},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_13 = new double[][]{
+    public static final int[][] PATTERN_13 = new int[][]{
             {1, 1, 1, 1},
             {0, 1, 0, 0},
             {0, 0, 1, 0},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_14 = new double[][]{
+    public static final int[][] PATTERN_14 = new int[][]{
             {1, 1, 1, 1},
             {0, 0, 1, 0},
             {0, 1, 0, 0},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_15 = new double[][]{
+    public static final int[][] PATTERN_15 = new int[][]{
             {1, 0, 0, 0},
             {1, 1, 1, 1},
             {1, 0, 0, 0},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_16 = new double[][]{
+    public static final int[][] PATTERN_16 = new int[][]{
             {0, 1, 0, 0},
             {1, 1, 1, 1},
             {0, 1, 0, 0},
             {0, 1, 0, 0},
     };
 
-    public static final double[][] PATTERN_17 = new double[][]{
+    public static final int[][] PATTERN_17 = new int[][]{
             {0, 0, 1, 0},
             {1, 1, 1, 1},
             {0, 0, 1, 0},
             {0, 0, 1, 0},
     };
 
-    public static final double[][] PATTERN_18 = new double[][]{
+    public static final int[][] PATTERN_18 = new int[][]{
             {0, 0, 0, 1},
             {1, 1, 1, 1},
             {0, 0, 0, 1},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_19 = new double[][]{
+    public static final int[][] PATTERN_19 = new int[][]{
             {1, 0, 0, 0},
             {1, 1, 1, 1},
             {0, 0, 1, 0},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_20 = new double[][]{
-            {1, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0},
-    };
-
-    public static final double[][] PATTERN_21 = new double[][]{
+    public static final int[][] PATTERN_20 = new int[][]{
             {0, 0, 0, 1},
             {1, 1, 1, 1},
             {0, 1, 0, 0},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_22 = new double[][]{
+    public static final int[][] PATTERN_21 = new int[][]{
             {1, 0, 0, 0},
             {1, 0, 0, 0},
             {1, 1, 1, 1},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_23 = new double[][]{
+    public static final int[][] PATTERN_22 = new int[][]{
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {1, 1, 1, 1},
             {0, 1, 0, 0},
     };
 
-    public static final double[][] PATTERN_24 = new double[][]{
+    public static final int[][] PATTERN_23 = new int[][]{
             {0, 0, 1, 0},
             {0, 0, 1, 0},
             {1, 1, 1, 1},
             {0, 0, 1, 0},
     };
 
-    public static final double[][] PATTERN_25 = new double[][]{
+    public static final int[][] PATTERN_24 = new int[][]{
             {0, 0, 0, 1},
             {0, 0, 0, 1},
             {1, 1, 1, 1},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_26 = new double[][]{
+    public static final int[][] PATTERN_25 = new int[][]{
             {0, 0, 0, 1},
             {0, 0, 1, 0},
             {1, 1, 1, 1},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_27 = new double[][]{
+    public static final int[][] PATTERN_26 = new int[][]{
             {1, 0, 0, 0},
             {0, 1, 0, 0},
             {1, 1, 1, 1},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_28 = new double[][]{
+    public static final int[][] PATTERN_27 = new int[][]{
             {1, 0, 0, 0},
             {1, 0, 0, 0},
             {1, 0, 0, 0},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_29 = new double[][]{
+    public static final int[][] PATTERN_28 = new int[][]{
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_30 = new double[][]{
+    public static final int[][] PATTERN_29 = new int[][]{
             {0, 0, 1, 0},
             {0, 0, 1, 0},
             {0, 0, 1, 0},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_31 = new double[][]{
+    public static final int[][] PATTERN_30 = new int[][]{
             {0, 0, 0, 1},
             {0, 0, 0, 1},
             {0, 0, 0, 1},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_32 = new double[][]{
+    public static final int[][] PATTERN_31 = new int[][]{
             {1, 0, 0, 0},
             {1, 1, 0, 0},
             {1, 0, 1, 0},
             {1, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_33 = new double[][]{
+    public static final int[][] PATTERN_32 = new int[][]{
             {1, 1, 0, 0},
             {0, 1, 0, 0},
             {0, 1, 1, 0},
             {0, 1, 0, 1},
     };
 
-    public static final double[][] PATTERN_34 = new double[][]{
+    public static final int[][] PATTERN_33 = new int[][]{
             {1, 0, 1, 0},
             {0, 1, 1, 0},
             {0, 0, 1, 0},
             {0, 0, 1, 1},
     };
 
-    public static final double[][] PATTERN_35 = new double[][]{
+    public static final int[][] PATTERN_34 = new int[][]{
             {1, 0, 0, 1},
             {0, 1, 0, 1},
             {0, 0, 1, 1},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_36 = new double[][]{
+    public static final int[][] PATTERN_35 = new int[][]{
             {1, 0, 0, 1},
             {1, 0, 1, 0},
             {1, 1, 0, 0},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_37 = new double[][]{
+    public static final int[][] PATTERN_36 = new int[][]{
             {0, 1, 0, 1},
             {0, 1, 1, 0},
             {0, 1, 0, 0},
             {1, 1, 0, 0},
     };
 
-    public static final double[][] PATTERN_38 = new double[][]{
+    public static final int[][] PATTERN_37 = new int[][]{
             {0, 0, 1, 1},
             {0, 0, 1, 0},
             {0, 1, 1, 0},
             {1, 0, 1, 0},
     };
 
-    public static final double[][] PATTERN_39 = new double[][]{
+    public static final int[][] PATTERN_38 = new int[][]{
             {0, 0, 0, 1},
             {0, 0, 1, 1},
             {0, 1, 0, 1},
             {1, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_40 = new double[][]{
+    public static final int[][] PATTERN_39 = new int[][]{
             {0, 0, 0, 1},
             {0, 0, 1, 0},
             {0, 1, 0, 0},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_41 = new double[][]{
+    public static final int[][] PATTERN_40 = new int[][]{
             {1, 0, 0, 0},
             {0, 1, 0, 0},
             {0, 0, 1, 0},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_42 = new double[][]{
+    public static final int[][] PATTERN_41 = new int[][]{
             {1, 1, 1, 1},
             {0, 0, 0, 0},
             {0, 0, 0, 0},
             {0, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_43 = new double[][]{
+    public static final int[][] PATTERN_42 = new int[][]{
             {0, 0, 0, 0},
             {1, 1, 1, 1},
             {0, 0, 0, 0},
             {0, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_44 = new double[][]{
+    public static final int[][] PATTERN_43 = new int[][]{
             {0, 0, 0, 0},
             {0, 0, 0, 0},
             {1, 1, 1, 1},
             {0, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_45 = new double[][]{
+    public static final int[][] PATTERN_44 = new int[][]{
             {0, 0, 0, 0},
             {0, 0, 0, 0},
             {0, 0, 0, 0},
             {1, 1, 1, 1},
     };
 
-    public static final double[][] PATTERN_46 = new double[][]{
+    public static final int[][] PATTERN_45 = new int[][]{
             {1, 0, 0, 0},
             {1, 0, 0, 0},
             {1, 0, 0, 0},
             {1, 0, 0, 0},
     };
 
-    public static final double[][] PATTERN_47 = new double[][]{
+    public static final int[][] PATTERN_46 = new int[][]{
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {0, 1, 0, 0},
             {0, 1, 0, 0},
     };
 
-    public static final double[][] PATTERN_48 = new double[][]{
+    public static final int[][] PATTERN_47 = new int[][]{
             {0, 0, 1, 0},
             {0, 0, 1, 0},
             {0, 0, 1, 0},
             {0, 0, 1, 0},
     };
 
-    public static final double[][] PATTERN_49 = new double[][]{
+    public static final int[][] PATTERN_48 = new int[][]{
             {0, 0, 0, 1},
             {0, 0, 0, 1},
             {0, 0, 0, 1},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_50 = new double[][]{
+    public static final int[][] PATTERN_49 = new int[][]{
             {1, 0, 0, 0},
             {0, 1, 0, 0},
             {0, 0, 1, 0},
             {0, 0, 0, 1},
     };
 
-    public static final double[][] PATTERN_51 = new double[][]{
+    public static final int[][] PATTERN_50 = new int[][]{
             {0, 0, 0, 1},
             {0, 0, 1, 0},
             {0, 1, 0, 0},
@@ -362,33 +355,58 @@ public class Calculator {
     };
 
     //ACCIO
-    public static final double[][] PATTERN_52 = new double[][]{
+    public static final int[][] PATTERN_51 = new int[][]{
             {0, 1, 1, 0},
             {1, 0, 0, 1},
             {1, 0, 0, 1},
             {1, 0, 0, 1},
     };
 
-    //COLLAPORTA
-    public static final double[][] PATTERN_53 = new double[][]{
+    //COLLOPORTUS
+    public static final int[][] PATTERN_52 = new int[][]{
             {1, 1, 1, 1},
             {0, 0, 0, 1},
             {0, 1, 1, 1},
             {0, 1, 0, 0},
     };
 
-    public static final double PATTERN_QTY = 53;
+    //EPISKEY
+    public static final int[][] PATTERN_53 = new int[][]{
+            {0, 1, 1, 0},
+            {1, 0, 0, 1},
+            {1, 0, 0, 1},
+            {0, 1, 1, 0},
+    };
 
-    public static final double SINGLES = 60;
-    public static final double DOUBLES = 140;
-    public static final double SPECIAL = 215;
-    public static final double TRIPLES = 250;
+    //LOCOMOTOR
+    public static final int[][] PATTERN_54 = new int[][]{
+            {0, 0, 1, 0},
+            {0, 1, 1, 0},
+            {1, 1, 1, 1},
+            {0, 0, 1, 0},
+    };
+
+    public static final int PATTERN_QTY = 54;
+
+    public static final int SINGLES = 60;
+    public static final int DOUBLES = 140;
+    public static final int SPECIAL = 215;
+    public static final int TRIPLES = 250;
+
+    private static final int START_TIPLES = 1;
+    private static final int END_TIPLES = 8;
+    private static final int START_DOUBLES = 9;
+    private static final int END_DOUBLES = 40;
+    private static final int START_SINGLES = 41;
+    private static final int END_SINGLES = 50;
+    private static final int START_SPECIALS = 51;
+    private static final int END_SPECIALS = PATTERN_QTY;
 
 
     public Calculator() {
     }
 
-    public double calculateArraysWithPattern(double[][] pattern, double[][] classesTimes, double[][] nonClassesTimes, double[][] pointsClasses, double[][] pointsNonClasses, double[][] classesTimesInPattern, double[][] nonClassesTimesOutPattern, double[][] pointsInPattern, double[][] pointsOutPattern) {
+    public double calculateArraysWithPattern(int[][] pattern, double[][] classesTimes, double[][] nonClassesTimes, double[][] pointsClasses, double[][] pointsNonClasses, double[][] classesTimesInPattern, double[][] nonClassesTimesOutPattern, double[][] pointsInPattern, double[][] pointsOutPattern) {
         // Set time arrays using a given pattern
         for (int row = 0; row < 4; row++) {
             for (int column = 0; column < 4; column++) {
@@ -466,20 +484,36 @@ public class Calculator {
     public double getMultiplicator (int patternNumber) {
         double multiplier = 0;
 
-        if (patternNumber >= 1 && patternNumber <= 8) {
+        if (patternNumber >= START_TIPLES && patternNumber <= END_TIPLES) {
             multiplier = TRIPLES;
-        } else if (patternNumber >= 9 && patternNumber <= 41) {
+        } else if (patternNumber >= START_DOUBLES && patternNumber <= END_DOUBLES) {
             multiplier = DOUBLES;
-        } else if (patternNumber >= 42 && patternNumber <= 51) {
+        } else if (patternNumber >= START_SINGLES && patternNumber <= END_SINGLES) {
             multiplier = SINGLES;
-        } else if (patternNumber >= 52 && patternNumber <= 53) {
+        } else if (patternNumber >= START_SPECIALS && patternNumber <= END_SPECIALS) {
             multiplier = SPECIAL;
         }
 
         return multiplier;
     }
 
-    public double[][] getTestPattern (int patternNumber) {
+    public String getPatternType (int patternNumber) {
+        String patternType = null;
+
+        if (patternNumber >= START_TIPLES && patternNumber <= END_TIPLES) {
+            patternType = "Triple";
+        } else if (patternNumber >= START_DOUBLES && patternNumber <= END_DOUBLES) {
+            patternType = "Double";
+        } else if (patternNumber >= START_SINGLES && patternNumber <= END_SINGLES) {
+            patternType = "Single";
+        } else if (patternNumber >= START_SPECIALS && patternNumber <= END_SPECIALS) {
+            patternType = "Special";
+        }
+
+        return patternType;
+    }
+
+    public int[][] getTestPattern (int patternNumber) {
         switch (patternNumber) {
             case 1: return PATTERN_1;
             case 2: return PATTERN_2;
@@ -534,6 +568,7 @@ public class Calculator {
             case 51: return PATTERN_51;
             case 52: return PATTERN_52;
             case 53: return PATTERN_53;
+            case 54: return PATTERN_54;
             default: return null;
         }
     }

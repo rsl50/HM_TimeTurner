@@ -2,6 +2,7 @@ package br.com.rdev.hmtimeturner.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,11 +11,19 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import br.com.rdev.hmtimeturner.R;
 import br.com.rdev.hmtimeturner.model.Calculator;
 import br.com.rdev.hmtimeturner.model.Pattern;
 
+import static br.com.rdev.hmtimeturner.model.Calculator.DOUBLES;
 import static br.com.rdev.hmtimeturner.model.Calculator.PATTERN_QTY;
+import static br.com.rdev.hmtimeturner.model.Calculator.SINGLES;
 import static br.com.rdev.hmtimeturner.model.Calculator.TRIPLES;
 
 public class MainActivity extends AppCompatActivity {
@@ -86,14 +95,19 @@ public class MainActivity extends AppCompatActivity {
                 double minPointsPerHour = 0;
                 double expectedPointsPerHour = 0;
 
-                double bestTriple = 0; //ENTRE 1 E 8
+                double bestTriple = 0;
                 int bestTriplePattern = 0; //ENTRE 1 E 8
-                double bestDouble = 0; //ENTRE 9 E 41
-                int bestDoublePattern = 0; //ENTRE 9 E 41
-                double bestSingle = 0; //ENTRE 42 e 51
-                int bestSinglePattern = 0; //ENTRE 42 E 51
-                double bestSpecial = 0; //ENTRE 52 e 53
-                int bestSpecialPattern = 0; //ENTRE 52 E 53
+                double bestDouble = 0;
+                int bestDoublePattern = 0; //ENTRE 9 E 40
+                double bestSingle = 0;
+                int bestSinglePattern = 0; //ENTRE 41 E 50
+                double bestSpecial = 0;
+                int bestSpecialPattern = 0; //ENTRE 51 E 54
+
+                ArrayList<String> bestSingleList = new ArrayList<>();
+                ArrayList<String> bestDoubleList = new ArrayList<>();
+                ArrayList<String> bestTripleList = new ArrayList<>();
+                ArrayList<String> bestSpecialList = new ArrayList<>();
 
                 for (int i = 1; i <= PATTERN_QTY; i++) {
                     calculator.clearArray(classesTimesInPattern);
@@ -103,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
                     timeRequired = calculator.calculateArraysWithPattern(calculator.getTestPattern(i), classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses, classesTimesInPattern, nonClassesTimesOutPattern, pointsInPattern, pointsOutPattern);
 
-                    Log.d("HP", "TESTE PADRÃO "+i);
+                    Log.d("HP", "TESTE PADRÃO " + i + "-" + calculator.getPatternType(i));
                     //Display arrays
 //                    logArray(classesTimes, "Horas Aulas");
 //                    logArray(nonClassesTimes, "Horas Não Aula");
@@ -115,39 +129,57 @@ public class MainActivity extends AppCompatActivity {
 //                    logArray(pointsOutPattern, "Pontos Fora no Padrão");
 
                     minPoints = calculator.sumArrayValues(pointsInPattern) + calculator.getMultiplicator(i);
-                    maxPoints = calculator.sumArrayValues(pointsInPattern) + calculator.sumArrayValues(pointsOutPattern) + calculator.getMultiplicator(i);;
+                    maxPoints = calculator.sumArrayValues(pointsInPattern) + calculator.sumArrayValues(pointsOutPattern) + calculator.getMultiplicator(i);
                     minPointsPerHour = minPoints/timeRequired;
                     expectedPointsPerHour = maxPoints/timeRequired;
 
 
-//                    Log.d("HP","Horas Necessárias:" + timeRequired);
-//                    Log.d("HP","Pontos Mínimos:" + minPoints);
-//                    Log.d("HP","Pontos Máximos:" + maxPoints);
-//                    Log.d("HP","Pontos Mínimos/Hora:" + minPointsPerHour);
-//                    Log.d("HP","Pontos Esperados/Hora:" + expectedPointsPerHour);
-//                    Log.d("HP", "=============");
+                    Log.d("HP","Horas Necessárias:" + timeRequired);
+                    Log.d("HP","Pontos Mínimos:" + minPoints);
+                    Log.d("HP","Pontos Máximos:" + maxPoints);
+                    Log.d("HP","Pontos Mínimos/Hora:" + minPointsPerHour);
+                    Log.d("HP","Pontos Esperados/Hora:" + expectedPointsPerHour);
+                    Log.d("HP", "=============");
 
-                    if (i >= 1 && i <= 8) {
+                    String calculationResult = expectedPointsPerHour + ";" + i + ";" + timeRequired + ";" + minPoints + ";" + maxPoints + ";" + minPointsPerHour;
+
+                    if (calculator.getMultiplicator(i) == TRIPLES) {
+                        bestTripleList.add(calculationResult);
+                    } else if (calculator.getMultiplicator(i) == DOUBLES) {
+                        bestDoubleList.add(calculationResult);
+                    } else if (calculator.getMultiplicator(i) == SINGLES) {
+                        bestSingleList.add(calculationResult);
+                    } else {
+                        bestSpecialList.add(calculationResult);
+                    }
+
+                    /*if (i >= 1 && i <= 8) {
                         if (expectedPointsPerHour > bestTriple) {
+
+                            Log.d("HP", "TRIPLO BOM "+i);
                             bestTriple = expectedPointsPerHour;
                             bestTriplePattern = i;
+                            bestTripleList.add(bestTriple + "|" + bestTriplePattern);
                         }
-                    } else if (i >= 9 && i <= 41) {
+                    } else if (i >= 9 && i <= 40) {
                         if (expectedPointsPerHour > bestDouble) {
                             bestDouble = expectedPointsPerHour;
                             bestDoublePattern = i;
+                            bestDoubleList.add(bestDouble + "|" + bestDoublePattern);
                         }
-                    } else if (i >= 42 && i <= 51) {
+                    } else if (i >= 41 && i <= 50) {
                         if (expectedPointsPerHour > bestSingle) {
                             bestSingle = expectedPointsPerHour;
                             bestSinglePattern = i;
+                            bestSingleList.add(bestSingle + "|" + bestSinglePattern);
                         }
-                    } else if (i >= 52 && i <= 53) {
+                    } else if (i >= 51 && i <= 54) {
                         if (expectedPointsPerHour > bestSpecial) {
                             bestSpecial = expectedPointsPerHour;
                             bestSpecialPattern = i;
+                            bestSpecialList.add(bestSpecial + "|" + bestSpecialPattern);
                         }
-                    }
+                    }*/
                 }
 
                 Log.d("HP", "Melhor Padrão Triplo: " +bestTriplePattern+ "| Pontos/hora Esperados: "+bestTriple);
@@ -163,9 +195,76 @@ public class MainActivity extends AppCompatActivity {
                 expectedPointsPerHourValue.setText(String.format("%.2f", expectedPointsPerHour));
 
 
+
+                Comparator<String> comparator = new Comparator<String>() {
+                    @Override
+                    public int compare(String value2, String value1)
+                    {
+                        String[] partsValue1 = value1.split(";");
+                        String[] partsValue2 = value2.split(";");
+
+                        return  partsValue1[0].compareTo(partsValue2[0]);
+                    }
+                };
+
+
+                Collections.sort(bestTripleList, comparator);
+                Collections.sort(bestDoubleList, comparator);
+                Collections.sort(bestSingleList, comparator);
+                Collections.sort(bestSpecialList, comparator);
+
+
+
+                Log.d("HP", "Listagem Triple");
+                for (String results : bestTripleList) {
+                    Log.d("HP", results);
+                }
+
+                Log.d("HP", "Listagem Double");
+                for (String results : bestDoubleList) {
+                    Log.d("HP", results);
+                }
+
+                Log.d("HP", "Listagem Single");
+                for (String results : bestSingleList) {
+                    Log.d("HP", results);
+                }
+
+                Log.d("HP", "Listagem Special");
+                for (String results : bestSpecialList) {
+                    Log.d("HP", results);
+                }
+
+                Log.d("HP", "=================");
+                String texto = bestTripleList.get(0);
+                String[] partes = texto.split(";");
+                for (int i = 0; i < partes.length; i++){
+                    Log.d("HP", i+":"+partes[i]);
+                }
+
+
+                List<Pattern> results = new ArrayList<Pattern>();
+                for (int i = 0; i < bestTripleList.size(); i++) {
+
+                    String resultPattern = bestTripleList.get(i);
+                    String[] resultParts = texto.split(";");
+
+                    results.add(new Pattern(
+                            calculator.getPatternType(Integer.parseInt(resultParts[1])),
+                            "pattern_"+resultParts[1],
+                            Double.parseDouble(resultParts[0]),
+                            Double.parseDouble(resultParts[3]),
+                            Double.parseDouble(resultParts[5]),
+                            Double.parseDouble(resultParts[4]),
+                            Double.parseDouble(resultParts[2])));
+                }
+
+
+
                 Intent intent = new Intent(MainActivity.this, ListResultsActivity.class);
-                Pattern p5 = new Pattern("Single", "pattern_1", bestSingle);
-                intent.putExtra("result", p5);
+                //Pattern p5 = new Pattern(calculator.getPatternType(Integer.parseInt(partes[1])), "pattern_"+partes[1], Double.parseDouble(partes[0]));
+                //intent.putExtra("result", results);
+                intent.putParcelableArrayListExtra("result", (ArrayList<? extends Parcelable>) results);
                 startActivity(intent);
             }
         });

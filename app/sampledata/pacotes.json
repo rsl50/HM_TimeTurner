@@ -1,39 +1,42 @@
 {
   "pacotes": [
     {
-      "pontos_esperados": "28.43",
       "imagem": "@drawable/pattern_1",
-      "tipo": "Single",
+      "tipo": "Triple",
+      "pontos_esperados": "28.43",
+      "pontos_max": "455",
+      "pontos_min": "100",
+      "pontos_min_hora": "10.20",
+      "horas": "12.50"
+    },
+    {
+      "imagem": "@drawable/pattern_2",
+      "tipo": "Triple",
+      "pontos_esperados": "28.43",
       "pontos_max": "455"
     },
     {
+      "imagem": "@drawable/pattern_9",
+      "tipo": "Double",
       "pontos_esperados": "28.43",
-      "imagem": "@drawable/pattern_1",
-      "tipo": "Single",
       "pontos_max": "455"
     },
     {
+      "imagem": "@drawable/pattern_10",
+      "tipo": "Double",
       "pontos_esperados": "28.43",
-      "imagem": "@drawable/pattern_1",
-      "tipo": "Single",
       "pontos_max": "455"
     },
     {
-      "pontos_esperados": "28.43",
-      "imagem": "@drawable/pattern_1",
+      "imagem": "@drawable/pattern_50",
       "tipo": "Single",
+      "pontos_esperados": "28.43",
       "pontos_max": "455"
     },
     {
+      "imagem": "@drawable/pattern_51",
+      "tipo": "Special",
       "pontos_esperados": "28.43",
-      "imagem": "@drawable/pattern_1",
-      "tipo": "Single",
-      "pontos_max": "455"
-    },
-    {
-      "pontos_esperados": "28.43",
-      "imagem": "@drawable/pattern_1",
-      "tipo": "Single",
       "pontos_max": "455"
     }
   ]

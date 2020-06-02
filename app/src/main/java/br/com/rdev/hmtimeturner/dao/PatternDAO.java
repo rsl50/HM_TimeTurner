@@ -13,10 +13,10 @@ public class PatternDAO {
 
     public List<Pattern> lista() {
         List<Pattern> pacotes = new ArrayList<>(Arrays.asList(
-                new Pattern("Single", "pattern_1", 2.0),
-                new Pattern("Double", "pattern_2", 3.0),
-                new Pattern("Triple", "pattern_3", 4.0),
-                new Pattern("Special", "pattern_4", 6.0)));
+                new Pattern("Single", "pattern_1", 2.0, 0, 0, 0, 0),
+                new Pattern("Double", "pattern_2", 3.0, 0, 0, 0, 0),
+                new Pattern("Triple", "pattern_3", 4.0, 0, 0, 0, 0),
+                new Pattern("Special", "pattern_4", 6.0, 0, 0, 0, 0)));
         return pacotes;
     }
 

@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -74,14 +73,24 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
     class PatternViewHolder extends RecyclerView.ViewHolder {
         private final ImageView pattern_image;
         private final TextView pattern_type;
-        private final TextView expected_hours;
+        private final TextView expected_points_per_hour;
+        private final TextView hours;
+        private final TextView min_points;
+        private final TextView min_points_hour;
+        private final TextView max_points;
         private Pattern pattern;
 
         public PatternViewHolder(@NonNull View itemView) {
             super(itemView);
             pattern_image = itemView.findViewById(R.id.item_result_pattern);
             pattern_type = itemView.findViewById(R.id.item_result_value_pattern_type);
-            expected_hours = itemView.findViewById(R.id.item_result_value_expected_time);
+            expected_points_per_hour = itemView.findViewById(R.id.item_result_value_expected_time);
+
+            hours = itemView.findViewById(R.id.item_result_value_hours);
+            min_points = itemView.findViewById(R.id.item_result_value_min_points);
+            min_points_hour = itemView.findViewById(R.id.item_result_value_min_points_per_hour);
+            max_points = itemView.findViewById(R.id.item_result_value_max_points);
+
         }
 
         public void vincula(Pattern pattern) {
@@ -90,11 +99,16 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
         }
 
         private void preencheCampos(Pattern pattern) {
-            Drawable drawableImagemPacote = ResourceUtil.devolveDrawable(context, pattern.getImagem());
+            Drawable drawableImagemPacote = ResourceUtil.devolveDrawable(context, pattern.getPatternImage());
             pattern_image.setImageDrawable(drawableImagemPacote);
 
             pattern_type.setText(pattern.getType());
-            expected_hours.setText(String.format("%.2f", pattern.getExpected_hours()));
+            expected_points_per_hour.setText(String.format("%.2f", pattern.getExpectedPointsPerHour()));
+
+            hours.setText(String.format("%.2f", pattern.getHours()));
+            min_points.setText(String.format("%.2f", pattern.getMinPoints()));
+            min_points_hour.setText(String.format("%.2f", pattern.getMinPointsPerHour()));
+            max_points.setText(String.format("%.2f", pattern.getMaxPoints()));
             }
         }
 }
