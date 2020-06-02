@@ -390,7 +390,7 @@ public class Calculator {
 
     public static final int SINGLES = 60;
     public static final int DOUBLES = 140;
-    public static final int SPECIAL = 215;
+    private int SPECIAL = 220;
     public static final int TRIPLES = 250;
 
     private static final int START_TIPLES = 1;
@@ -461,7 +461,13 @@ public class Calculator {
         return value;
     }
 
+    public void setSpecialPatternValue (int value) {
+        this.SPECIAL = value;
+    }
 
+    public int getSpecialPatternValue () {
+        return SPECIAL;
+    }
 
     private void setArrayValues(double[][] classTimeRequired, int row, int column, EditText[][] editTextArray, String s) {
         try {

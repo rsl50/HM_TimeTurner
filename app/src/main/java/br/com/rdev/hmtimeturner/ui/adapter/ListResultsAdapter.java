@@ -1,7 +1,9 @@
 package br.com.rdev.hmtimeturner.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Collections;
@@ -22,6 +25,7 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
 
     private final List<Pattern> patterns;
     private final Context context;
+    //private int[] paintedViews = new int[4];
 
     public ListResultsAdapter(Context context, List <Pattern> patterns) {
         this.patterns = patterns;
@@ -36,9 +40,19 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
     }
 
     @Override
-    public void onBindViewHolder (@NonNull PatternViewHolder holder,int position){
-        Pattern nota = patterns.get(position);
-        holder.vincula(nota);
+    public void onBindViewHolder (@NonNull PatternViewHolder holder, int position){
+        Pattern resultPattern = patterns.get(position);
+
+        Log.d("BG", "ID:"+patterns.get(position).getPatternImage()+";TOP:"+patterns.get(position).getIsTop());
+
+        if (resultPattern.getIsTop() == 1){
+            holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFE70F"));
+        } else {
+            holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+
+
+        holder.vincula(resultPattern);
     }
 
     @Override
@@ -78,10 +92,13 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
         private final TextView min_points;
         private final TextView min_points_hour;
         private final TextView max_points;
+        private final ConstraintLayout constraintLayout;
         private Pattern pattern;
 
         public PatternViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            constraintLayout = itemView.findViewById(R.id.constraintLayout);
             pattern_image = itemView.findViewById(R.id.item_result_pattern);
             pattern_type = itemView.findViewById(R.id.item_result_value_pattern_type);
             expected_points_per_hour = itemView.findViewById(R.id.item_result_value_expected_time);
@@ -90,11 +107,16 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
             min_points = itemView.findViewById(R.id.item_result_value_min_points);
             min_points_hour = itemView.findViewById(R.id.item_result_value_min_points_per_hour);
             max_points = itemView.findViewById(R.id.item_result_value_max_points);
-
         }
 
         public void vincula(Pattern pattern) {
             this.pattern = pattern;
+
+//            if (this.pattern.getIsTop() == 1) {
+//                constraintLayout.setBackgroundColor(Color.parseColor("#FFE70F"));
+//                this.pattern.setIsTop(0);
+//            }
+
             preencheCampos(pattern);
         }
 
@@ -109,7 +131,7 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
             min_points.setText(String.format("%.2f", pattern.getMinPoints()));
             min_points_hour.setText(String.format("%.2f", pattern.getMinPointsPerHour()));
             max_points.setText(String.format("%.2f", pattern.getMaxPoints()));
-            }
         }
+    }
 }
 

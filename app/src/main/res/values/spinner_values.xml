@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="special_patterns">
+        <item>Accio</item>
+        <item>Colloportus</item>
+        <item>Episkey</item>
+        <item>Locomotor</item>
+    </string-array>
+</resources>

@@ -14,6 +14,8 @@ import br.com.rdev.hmtimeturner.dao.PatternDAO;
 import br.com.rdev.hmtimeturner.model.Pattern;
 import br.com.rdev.hmtimeturner.ui.adapter.ListResultsAdapter;
 
+import static androidx.recyclerview.widget.RecyclerView.*;
+
 public class ListResultsActivity extends AppCompatActivity {
 
     public static final String TITLE_APPBAR = "Resultados";
@@ -27,20 +29,10 @@ public class ListResultsActivity extends AppCompatActivity {
         setTitle(TITLE_APPBAR);
         List<Pattern> allResults = pegaTodasNotas();
 
-//        Pattern pattern1 = new Pattern("Single", "pattern_1", 2.0);
-//        Pattern pattern2 = new Pattern("Double", "pattern_2", 3.0);
-//        Pattern pattern3 = new Pattern("Triple", "pattern_3", 4.0);
-//        Pattern pattern4 = new Pattern("Special", "pattern_4", 6.0);
-//        allResults.add(pattern1);
-//        allResults.add(pattern2);
-//        allResults.add(pattern3);
-//        allResults.add(pattern4);
-
         Intent receivedData = getIntent();
         if (receivedData.hasExtra("result")) {
 
             ArrayList<Pattern> resultPatterns = receivedData.getParcelableArrayListExtra("result");
-            //Pattern receivedResult = receivedData.getParcelableExtra("result");
             allResults.addAll(resultPatterns);
         }
 
@@ -61,8 +53,8 @@ public class ListResultsActivity extends AppCompatActivity {
         //configuraItemTouchHelper(listResults);
     }
 
-    private void configuraAdapter(List<Pattern> todasNotas, RecyclerView allResults) {
-        adapter = new ListResultsAdapter(this, todasNotas);
+    private void configuraAdapter(List<Pattern> resultsPatterns, RecyclerView allResults) {
+        adapter = new ListResultsAdapter(this, resultsPatterns);
         allResults.setAdapter(adapter);
     }
 }

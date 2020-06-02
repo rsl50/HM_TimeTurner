@@ -7,42 +7,6 @@
     tools:context=".ui.activity.MainActivity">
 
     <TextView
-        android:id="@+id/title_maxPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Máximo de pontos:"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/title_minPoints"
-        app:layout_constraintTop_toBottomOf="@+id/title_minPoints" />
-
-    <TextView
-        android:id="@+id/title_hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Horas necessárias: "
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/title_maxPoints"
-        app:layout_constraintTop_toBottomOf="@+id/title_maxPoints" />
-
-    <TextView
-        android:id="@+id/title_minPointsPerHour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mínimo de Pontos/Hora:"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/title_hours"
-        app:layout_constraintTop_toBottomOf="@+id/title_hours" />
-
-    <TextView
-        android:id="@+id/title_expectedPointPerHour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pontos Esperados/Hora:"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/title_minPointsPerHour"
-        app:layout_constraintTop_toBottomOf="@+id/title_minPointsPerHour" />
-
-    <TextView
         android:id="@+id/title_classes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -527,11 +491,11 @@
         android:id="@+id/title_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Pontos"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/class_41"
-        app:layout_constraintTop_toBottomOf="@+id/class_41" />
+        app:layout_constraintStart_toStartOf="@+id/button_clear_classes"
+        app:layout_constraintTop_toBottomOf="@+id/button_clear_classes" />
 
     <EditText
         android:id="@+id/points_11"
@@ -590,6 +554,20 @@
         app:layout_constraintStart_toEndOf="@+id/points_13"
         app:layout_constraintTop_toTopOf="@+id/points_13"
         tools:text="9.99" />
+
+    <EditText
+        android:id="@+id/points_special_pattern"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="220"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/title_special_value"
+        app:layout_constraintTop_toBottomOf="@+id/title_special_value"
+        tools:text="220" />
 
     <EditText
         android:id="@+id/points_21"
@@ -763,93 +741,67 @@
         android:id="@+id/button_run"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="99dp"
         android:text="magick!"
-        app:layout_constraintStart_toStartOf="@+id/nonclass_41"
-        app:layout_constraintTop_toBottomOf="@+id/nonclass_41" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_clear_nonclasses" />
 
     <Button
         android:id="@+id/button_clear_classes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Zerar Aulas"
-        app:layout_constraintStart_toStartOf="@+id/button_run"
-        app:layout_constraintTop_toBottomOf="@+id/button_run" />
+        app:layout_constraintStart_toStartOf="@+id/class_41"
+        app:layout_constraintTop_toBottomOf="@+id/class_41" />
 
     <Button
         android:id="@+id/button_clear_nonclasses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Zerar Não Aulas"
-        app:layout_constraintStart_toStartOf="@+id/button_clear_classes"
-        app:layout_constraintTop_toBottomOf="@+id/button_clear_classes" />
+        app:layout_constraintStart_toStartOf="@+id/nonclass_41"
+        app:layout_constraintTop_toBottomOf="@+id/nonclass_41" />
 
     <Button
         android:id="@+id/button_clear_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Zerar Pontos"
-        app:layout_constraintStart_toStartOf="@+id/button_clear_nonclasses"
-        app:layout_constraintTop_toBottomOf="@+id/button_clear_nonclasses" />
+        app:layout_constraintStart_toStartOf="@+id/points_41"
+        app:layout_constraintTop_toBottomOf="@+id/points_41" />
 
     <Button
         android:id="@+id/button_clear_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Zerar Tudo"
-        app:layout_constraintStart_toStartOf="@+id/button_clear_points"
-        app:layout_constraintTop_toBottomOf="@+id/button_clear_points" />
+        app:layout_constraintStart_toStartOf="@+id/button_run"
+        app:layout_constraintTop_toBottomOf="@+id/button_run" />
 
     <TextView
-        android:id="@+id/title_minPoints"
+        android:id="@+id/title_special"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="Mínimo de pontos:"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/points_41"
-        app:layout_constraintTop_toBottomOf="@+id/points_41" />
+        android:text="Padrão Especial da Rodada:"
+        app:layout_constraintStart_toStartOf="@+id/button_clear_all"
+        app:layout_constraintTop_toBottomOf="@+id/button_clear_all" />
+
+    <Spinner
+        android:id="@+id/spinner_special_pattern"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/title_special"
+        app:layout_constraintTop_toBottomOf="@+id/title_special" />
 
     <TextView
-        android:id="@+id/value_minPoints"
+        android:id="@+id/title_special_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/title_minPoints"
-        app:layout_constraintTop_toTopOf="@+id/title_minPoints" />
-
-    <TextView
-        android:id="@+id/value_maxPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintStart_toStartOf="@+id/value_minPoints"
-        app:layout_constraintTop_toBottomOf="@+id/value_minPoints" />
-
-    <TextView
-        android:id="@+id/value_hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintStart_toStartOf="@+id/value_maxPoints"
-        app:layout_constraintTop_toBottomOf="@+id/value_maxPoints" />
-
-    <TextView
-        android:id="@+id/value_minPointsPerHour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/title_hours"
-        app:layout_constraintTop_toBottomOf="@+id/value_hours" />
-
-    <TextView
-        android:id="@+id/value_expectedPointsPerHour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintStart_toStartOf="@+id/value_minPointsPerHour"
-        app:layout_constraintTop_toBottomOf="@+id/value_minPointsPerHour" />
+        android:text="Pontos Padrão Especial:"
+        app:layout_constraintStart_toStartOf="@+id/spinner_special_pattern"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_special_pattern" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
