@@ -1,43 +1,43 @@
 {
   "pacotes": [
     {
-      "imagem": "@drawable/pattern_1",
-      "tipo": "Triple",
-      "pontos_esperados": "28.43",
-      "pontos_max": "455",
-      "pontos_min": "100",
-      "pontos_min_hora": "10.20",
-      "horas": "12.50"
+      "image": "@drawable/pattern_1",
+      "type": "Triple",
+      "expected_pts_per_hour": "28.43",
+      "max_pts": "455",
+      "min_pts": "100",
+      "min_pts_per_hor": "10.20",
+      "hours_required": "12.50"
     },
     {
-      "imagem": "@drawable/pattern_2",
-      "tipo": "Triple",
-      "pontos_esperados": "28.43",
-      "pontos_max": "455"
+      "image": "@drawable/pattern_2",
+      "type": "Triple",
+      "expected_pts_per_hour": "28.43",
+      "max_pts": "455"
     },
     {
-      "imagem": "@drawable/pattern_9",
-      "tipo": "Double",
-      "pontos_esperados": "28.43",
-      "pontos_max": "455"
+      "image": "@drawable/pattern_9",
+      "type": "Double",
+      "expected_pts_per_hour": "28.43",
+      "max_pts": "455"
     },
     {
-      "imagem": "@drawable/pattern_10",
-      "tipo": "Double",
-      "pontos_esperados": "28.43",
-      "pontos_max": "455"
+      "image": "@drawable/pattern_10",
+      "type": "Double",
+      "expected_pts_per_hour": "28.43",
+      "max_pts": "455"
     },
     {
-      "imagem": "@drawable/pattern_50",
-      "tipo": "Single",
-      "pontos_esperados": "28.43",
-      "pontos_max": "455"
+      "image": "@drawable/pattern_50",
+      "type": "Single",
+      "expected_pts_per_hour": "28.43",
+      "max_pts": "455"
     },
     {
-      "imagem": "@drawable/pattern_51",
-      "tipo": "Special",
-      "pontos_esperados": "28.43",
-      "pontos_max": "455"
+      "image": "@drawable/pattern_51",
+      "type": "Special",
+      "expected_pts_per_hour": "28.43",
+      "max_pts": "455"
     }
   ]
 }

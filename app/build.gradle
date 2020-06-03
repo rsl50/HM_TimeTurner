@@ -1,14 +1,19 @@
 apply plugin: 'com.android.application'
 
+// version information
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 1
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "br.com.alura.hmtimeturner"
+        applicationId "br.com.rdev.hmtimeturner"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

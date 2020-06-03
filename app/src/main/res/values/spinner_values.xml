@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="special_patterns">
+    <string-array name="special_patterns_names">
         <item>Accio</item>
-        <item>Colloportus</item>
+        <item>Collaporta</item>
         <item>Episkey</item>
         <item>Locomotor</item>
     </string-array>

@@ -25,7 +25,6 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
 
     private final List<Pattern> patterns;
     private final Context context;
-    //private int[] paintedViews = new int[4];
 
     public ListResultsAdapter(Context context, List <Pattern> patterns) {
         this.patterns = patterns;
@@ -43,10 +42,9 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
     public void onBindViewHolder (@NonNull PatternViewHolder holder, int position){
         Pattern resultPattern = patterns.get(position);
 
-        Log.d("BG", "ID:"+patterns.get(position).getPatternImage()+";TOP:"+patterns.get(position).getIsTop());
-
+        // Paint top result cards
         if (resultPattern.getIsTop() == 1){
-            holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFE70F"));
+            holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFF69F"));
         } else {
             holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
@@ -125,12 +123,12 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
             pattern_image.setImageDrawable(drawableImagemPacote);
 
             pattern_type.setText(pattern.getType());
-            expected_points_per_hour.setText(String.format("%.2f", pattern.getExpectedPointsPerHour()));
+            expected_points_per_hour.setText(String.format("%.0f", pattern.getExpectedPointsPerHour()));
 
-            hours.setText(String.format("%.2f", pattern.getHours()));
-            min_points.setText(String.format("%.2f", pattern.getMinPoints()));
-            min_points_hour.setText(String.format("%.2f", pattern.getMinPointsPerHour()));
-            max_points.setText(String.format("%.2f", pattern.getMaxPoints()));
+            hours.setText(String.format("%.0f", pattern.getHours()));
+            min_points.setText(String.format("%.0f", pattern.getMinPoints()));
+            min_points_hour.setText(String.format("%.0f", pattern.getMinPointsPerHour()));
+            max_points.setText(String.format("%.0f", pattern.getMaxPoints()));
         }
     }
 }

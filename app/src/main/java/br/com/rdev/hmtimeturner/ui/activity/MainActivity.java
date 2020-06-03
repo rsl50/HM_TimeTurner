@@ -20,6 +20,7 @@ import java.util.Comparator;
 import br.com.rdev.hmtimeturner.R;
 import br.com.rdev.hmtimeturner.model.Calculator;
 import br.com.rdev.hmtimeturner.model.Pattern;
+import br.com.rdev.hmtimeturner.ui.adapter.CustomSpinnerAdapter;
 
 import static br.com.rdev.hmtimeturner.model.Calculator.DOUBLES;
 import static br.com.rdev.hmtimeturner.model.Calculator.PATTERN_QTY;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle("HM Full Marks Time Turner");
+
         calculator = new Calculator();
 
         initializeEditTexts();
@@ -60,14 +63,21 @@ public class MainActivity extends AppCompatActivity {
         pointsSpecialPattern = findViewById(R.id.points_special_pattern);
         pointsSpecialPattern.setText(String.format("%d", calculator.getSpecialPatternValue()));
 
+        String[] patternNames={"Accio","Collaporta","Episkey","Locomotor"};
+        int patternImages[] = {R.drawable.pattern_51, R.drawable.pattern_52, R.drawable.pattern_53, R.drawable.pattern_54};
+
         spinnerSpecialPattern = findViewById(R.id.spinner_special_pattern);
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.special_patterns, android.R.layout.simple_spinner_item);
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                //R.array.special_patterns_names, android.R.layout.simple_spinner_item);
+                //R.array.special_patterns_names, R.layout.custom_spinner_items);
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinnerSpecialPattern.setAdapter(adapter);
+        //spinnerSpecialPattern.setAdapter(adapter);
+
+        CustomSpinnerAdapter customAdapter=new CustomSpinnerAdapter(getApplicationContext(), patternImages, patternNames);
+        spinnerSpecialPattern.setAdapter(customAdapter);
 
         spinnerSpecialPattern.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -157,21 +167,21 @@ public class MainActivity extends AppCompatActivity {
                     //}
 
                     //Display arrays
-                    Log.d("HP", "TESTE PADRÃO " + i + "-" + calculator.getPatternType(i));
-                    logArray(classesTimes, "Horas Aulas");
-                    logArray(nonClassesTimes, "Horas Não Aula");
-                    logArray(pointsClasses, "Pontos");
-                    logArray(pointsNonClasses, "Pontos Não Aulas");
-                    logArray(classesTimesInPattern, "Horas Aulas Requeridas");
-                    logArray(nonClassesTimesOutPattern, "Horas NÃO Aulas Requeridas");
-                    logArray(pointsInPattern, "Mímino Pontos no Padrão");
-                    logArray(pointsOutPattern, "Pontos Fora no Padrão");
-                    Log.d("HP","Horas Necessárias:" + timeRequired);
-                    Log.d("HP","Pontos Mínimos:" + minPoints);
-                    Log.d("HP","Pontos Máximos:" + maxPoints);
-                    Log.d("HP","Pontos Mínimos/Hora:" + minPointsPerHour);
-                    Log.d("HP","Pontos Esperados/Hora:" + expectedPointsPerHour);
-                    Log.d("HP", "=============");
+//                    Log.d("HP", "TESTE PADRÃO " + i + "-" + calculator.getPatternType(i));
+//                    logArray(classesTimes, "Horas Aulas");
+//                    logArray(nonClassesTimes, "Horas Não Aula");
+//                    logArray(pointsClasses, "Pontos");
+//                    logArray(pointsNonClasses, "Pontos Não Aulas");
+//                    logArray(classesTimesInPattern, "Horas Aulas Requeridas");
+//                    logArray(nonClassesTimesOutPattern, "Horas NÃO Aulas Requeridas");
+//                    logArray(pointsInPattern, "Mímino Pontos no Padrão");
+//                    logArray(pointsOutPattern, "Pontos Fora no Padrão");
+//                    Log.d("HP","Horas Necessárias:" + timeRequired);
+//                    Log.d("HP","Pontos Mínimos:" + minPoints);
+//                    Log.d("HP","Pontos Máximos:" + maxPoints);
+//                    Log.d("HP","Pontos Mínimos/Hora:" + minPointsPerHour);
+//                    Log.d("HP","Pontos Esperados/Hora:" + expectedPointsPerHour);
+//                    Log.d("HP", "=============");
                 }
 
                 // Calculate for the Special Pattern Selected
@@ -200,57 +210,40 @@ public class MainActivity extends AppCompatActivity {
                 bestSpecialList.add(calculationResult);
 
                 //Display arrays
-                Log.d("HP", "TESTE PADRÃO " + specialPatternSlected + "-" + calculator.getPatternType(specialPatternSlected));
-                logArray(classesTimes, "Horas Aulas");
-                logArray(nonClassesTimes, "Horas Não Aula");
-                logArray(pointsClasses, "Pontos");
-                logArray(pointsNonClasses, "Pontos Não Aulas");
-                logArray(classesTimesInPattern, "Horas Aulas Requeridas");
-                logArray(nonClassesTimesOutPattern, "Horas NÃO Aulas Requeridas");
-                logArray(pointsInPattern, "Mímino Pontos no Padrão");
-                logArray(pointsOutPattern, "Pontos Fora no Padrão");
-                Log.d("HP","Horas Necessárias:" + timeRequired);
-                Log.d("HP","Pontos Mínimos:" + minPoints);
-                Log.d("HP","Pontos Máximos:" + maxPoints);
-                Log.d("HP","Pontos Mínimos/Hora:" + minPointsPerHour);
-                Log.d("HP","Pontos Esperados/Hora:" + expectedPointsPerHour);
-                Log.d("HP", "=============");
+//                Log.d("HP", "TESTE PADRÃO " + specialPatternSlected + "-" + calculator.getPatternType(specialPatternSlected));
+//                logArray(classesTimes, "Horas Aulas");
+//                logArray(nonClassesTimes, "Horas Não Aula");
+//                logArray(pointsClasses, "Pontos");
+//                logArray(pointsNonClasses, "Pontos Não Aulas");
+//                logArray(classesTimesInPattern, "Horas Aulas Requeridas");
+//                logArray(nonClassesTimesOutPattern, "Horas NÃO Aulas Requeridas");
+//                logArray(pointsInPattern, "Mímino Pontos no Padrão");
+//                logArray(pointsOutPattern, "Pontos Fora no Padrão");
+//                Log.d("HP","Horas Necessárias:" + timeRequired);
+//                Log.d("HP","Pontos Mínimos:" + minPoints);
+//                Log.d("HP","Pontos Máximos:" + maxPoints);
+//                Log.d("HP","Pontos Mínimos/Hora:" + minPointsPerHour);
+//                Log.d("HP","Pontos Esperados/Hora:" + expectedPointsPerHour);
+//                Log.d("HP", "=============");
 
 
-                //
-                bestTripleList = sortResultsList(bestTripleList);
-                bestDoubleList = sortResultsList(bestDoubleList);
-                bestSingleList = sortResultsList(bestSingleList);
-                bestSpecialList = sortResultsList(bestSpecialList);
 
+//                Log.d("HP", "ANTES SORT");
+//                logList(bestTripleList, "Listagem Triple");
+//                logList(bestDoubleList, "Listagem Double");
+//                logList(bestSingleList, "Listagem Single");
+//                logList(bestSpecialList, "Listagem Special");
 
-//                Log.d("HP", "Listagem Triple");
-//                for (String results : bestTripleList) {
-//                    Log.d("HP", results);
-//                }
+                // Sort all lists
+                sortList(bestTripleList);
+                sortList(bestDoubleList);
+                sortList(bestSingleList);
 
-//                Log.d("HP", "Listagem Double");
-//                for (String results : bestDoubleList) {
-//                    Log.d("HP", results);
-//                }
-//
-//                Log.d("HP", "Listagem Single");
-//                for (String results : bestSingleList) {
-//                    Log.d("HP", results);
-//                }
-//
-//                Log.d("HP", "Listagem Special");
-//                for (String results : bestSpecialList) {
-//                    Log.d("HP", results);
-//                }
-
-//                Log.d("HP", "=================");
-//                String texto = bestTripleList.get(0);
-//                String[] partes = texto.split(";");
-//                for (int i = 0; i < partes.length; i++){
-//                    Log.d("HP", i+":"+partes[i]);
-//                }
-
+//                Log.d("HP", "DEPOIS SORT");
+//                logList(bestTripleList, "Listagem Triple");
+//                logList(bestDoubleList, "Listagem Double");
+//                logList(bestSingleList, "Listagem Single");
+//                logList(bestSpecialList, "Listagem Special");
 
                 ArrayList<Pattern> results = new ArrayList<>();
                 String resultPattern = null;
@@ -262,7 +255,12 @@ public class MainActivity extends AppCompatActivity {
                 resultsTop.add(bestDoubleList.get(0));
                 resultsTop.add(bestSingleList.get(0));
                 resultsTop.add(bestSpecialList.get(0));
-                resultsTop = sortResultsList(resultsTop);
+
+//                Log.d("HP", "ANTES SORT");
+//                logList(resultsTop, "Listagem TOP4");
+                sortList(resultsTop);
+//                Log.d("HP", "DEPOIS SORT");
+//                logList(resultsTop, "Listagem TOP4");
 
                 for (int i = 0; i < resultsTop.size(); i++) {
                     resultPattern = resultsTop.get(i);
@@ -278,25 +276,22 @@ public class MainActivity extends AppCompatActivity {
                             Double.parseDouble(resultParts[2]), 1));
                 }
 
-                ArrayList<String> allResults = new ArrayList<>();
-                for (int i = 1; i < bestTripleList.size(); i++) {
-                    allResults.add(bestTripleList.get(i));
-                }
+                //ArrayList<String> allResults = new ArrayList<>();
+                resultsTop.clear();
+                addArray(resultsTop, bestTripleList, 1);
+                addArray(resultsTop, bestDoubleList, 1);
+                addArray(resultsTop, bestSingleList, 1);
+                addArray(resultsTop, bestTripleList, 1);
 
-                for (int i = 1; i < bestDoubleList.size(); i++) {
-                    allResults.add(bestDoubleList.get(i));
-                }
 
-                for (int i = 1; i < bestSingleList.size(); i++) {
-                    allResults.add(bestSingleList.get(i));
-                }
+//                Log.d("HP", "ANTES SORT");
+//                logList(resultsTop, "Listagem Geral");
+                sortList(resultsTop);
+//                Log.d("HP", "DEPOIS SORT");
+//                logList(resultsTop, "Listagem Geral");
 
-                for (int i = 1; i < bestSpecialList.size(); i++) {
-                    allResults.add(bestSpecialList.get(i));
-                }
-
-                for (int i = 0; i < allResults.size(); i++) {
-                    resultPattern = allResults.get(i);
+                for (int i = 0; i < resultsTop.size(); i++) {
+                    resultPattern = resultsTop.get(i);
                     resultParts = resultPattern.split(";");
 
                     results.add(new Pattern(
@@ -308,21 +303,6 @@ public class MainActivity extends AppCompatActivity {
                             Double.parseDouble(resultParts[4]),
                             Double.parseDouble(resultParts[2]), 0));
                 }
-
-//                for (int i = 1; i < bestTripleList.size(); i++) {
-//                    resultPattern = bestTripleList.get(i);
-//                    resultParts = resultPattern.split(";");
-//
-//                    results.add(new Pattern(
-//                            calculator.getPatternType(Integer.parseInt(resultParts[1])),
-//                            "pattern_"+resultParts[1],
-//                            Double.parseDouble(resultParts[0]),
-//                            Double.parseDouble(resultParts[3]),
-//                            Double.parseDouble(resultParts[5]),
-//                            Double.parseDouble(resultParts[4]),
-//                            Double.parseDouble(resultParts[2])));
-//                }
-
 
 
                 Intent intent = new Intent(MainActivity.this, ListResultsActivity.class);
@@ -363,25 +343,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    private ArrayList<String> sortResultsList(ArrayList<String> arrayToSort) {
-        ArrayList<String> arrayListSorted = arrayToSort;
-
-        Comparator<String> comparator = new Comparator<String>() {
-            @Override
-            public int compare(String value2, String value1)
-            {
-                String[] partsValue1 = value1.split(";");
-                String[] partsValue2 = value2.split(";");
-
-                return  partsValue1[0].compareTo(partsValue2[0]);
-            }
-        };
-
-        Collections.sort(arrayListSorted, comparator);
-
-        return arrayListSorted;
+    private void logList(ArrayList<String> bestTripleList, String s) {
+        Log.d("HP", s);
+        for (String results : bestTripleList) {
+            Log.d("HP", results);
+        }
     }
+
+    private void addArray (ArrayList<String> destination, ArrayList<String> origin, int startOriginPosition) {
+
+        for (int i = startOriginPosition; i < origin.size(); i++) {
+                    destination.add(origin.get(i));
+        }
+    }
+
+
+    private void sortList (ArrayList<String> arrayToSort) {
+
+        Collections.sort(arrayToSort, new Comparator<String>() {
+            @Override
+            public int compare(String c1, String c2) {
+
+                String[] val1 = c1.split(";");
+                String[] val2 = c2.split(";");
+                double doubleVal1 = Double.parseDouble(val1[0]);
+                double doubleVal2 = Double.parseDouble(val2[0]);
+
+                return Double.compare(doubleVal2, doubleVal1);
+            }
+        });
+    }
+
 
 
     private void logArray (double[][] array, String mensagem) {
@@ -424,6 +416,68 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTestValues() {
 
+        classes[0][0].setText("0");
+        classes[0][1].setText("0");
+        classes[0][2].setText("7.0");
+        classes[0][3].setText("0");
+
+        classes[1][0].setText("17");
+        classes[1][1].setText("0");
+        classes[1][2].setText("0");
+        classes[1][3].setText("0");
+
+        classes[2][0].setText("15");
+        classes[2][1].setText("0");
+        classes[2][2].setText("9.0");
+        classes[2][3].setText("0");
+
+        classes[3][0].setText("0");
+        classes[3][1].setText("11");
+        classes[3][2].setText("0");
+        classes[3][3].setText("14");
+
+
+        nonClasses[0][0].setText("10");
+        nonClasses[0][1].setText("10");
+        nonClasses[0][2].setText("0");
+        nonClasses[0][3].setText("7");
+
+        nonClasses[1][0].setText("0");
+        nonClasses[1][1].setText("4");
+        nonClasses[1][2].setText("7");
+        nonClasses[1][3].setText("1");
+
+        nonClasses[2][0].setText("0");
+        nonClasses[2][1].setText("6");
+        nonClasses[2][2].setText("0");
+        nonClasses[2][3].setText("18");
+
+        nonClasses[3][0].setText("6");
+        nonClasses[3][1].setText("0");
+        nonClasses[3][2].setText("1000");
+        nonClasses[3][3].setText("0");
+
+
+        pointsForClasses[0][0].setText("20");
+        pointsForClasses[0][1].setText("30");
+        pointsForClasses[0][2].setText("40");
+        pointsForClasses[0][3].setText("20");
+
+        pointsForClasses[1][0].setText("30");
+        pointsForClasses[1][1].setText("10");
+        pointsForClasses[1][2].setText("10");
+        pointsForClasses[1][3].setText("30");
+
+        pointsForClasses[2][0].setText("40");
+        pointsForClasses[2][1].setText("10");
+        pointsForClasses[2][2].setText("10");
+        pointsForClasses[2][3].setText("30");
+
+        pointsForClasses[3][0].setText("20");
+        pointsForClasses[3][1].setText("40");
+        pointsForClasses[3][2].setText("30");
+        pointsForClasses[3][3].setText("20");
+        /*
         classes[0][0].setText("0");
         classes[0][1].setText("0");
         classes[0][2].setText("0");
@@ -485,6 +539,7 @@ public class MainActivity extends AppCompatActivity {
         pointsForClasses[3][1].setText("20");
         pointsForClasses[3][2].setText("20");
         pointsForClasses[3][3].setText("10");
+        */
 
         /*classes[0][0].setText("13");
         classes[1][0].setText("16");

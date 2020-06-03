@@ -507,13 +507,13 @@ public class Calculator {
         String patternType = null;
 
         if (patternNumber >= START_TIPLES && patternNumber <= END_TIPLES) {
-            patternType = "Triple";
+            patternType = "Triplo";
         } else if (patternNumber >= START_DOUBLES && patternNumber <= END_DOUBLES) {
-            patternType = "Double";
+            patternType = "Duplo";
         } else if (patternNumber >= START_SINGLES && patternNumber <= END_SINGLES) {
-            patternType = "Single";
+            patternType = "Simples";
         } else if (patternNumber >= START_SPECIALS && patternNumber <= END_SPECIALS) {
-            patternType = "Special";
+            patternType = "Especial";
         }
 
         return patternType;
