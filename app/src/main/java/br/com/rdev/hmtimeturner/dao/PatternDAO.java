@@ -11,15 +11,6 @@ public class PatternDAO {
 
     private final static ArrayList<Pattern> results = new ArrayList<>();
 
-    public List<Pattern> lista() {
-        List<Pattern> pacotes = new ArrayList<>(Arrays.asList(
-                new Pattern("Single", "pattern_1", 2.0, 0, 0, 0, 0, 0),
-                new Pattern("Double", "pattern_2", 3.0, 0, 0, 0, 0, 0),
-                new Pattern("Triple", "pattern_3", 4.0, 0, 0, 0, 0, 0),
-                new Pattern("Special", "pattern_4", 6.0, 0, 0, 0, 0, 0)));
-        return pacotes;
-    }
-
     public List<Pattern> todos() {
         return (List<Pattern>) results.clone();
     }

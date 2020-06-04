@@ -25,33 +25,6 @@ public class Pattern implements Parcelable {
         this.isTop = isTop;
     }
 
-    public Pattern (){
-
-    }
-
-    private Pattern (Parcel from) {
-        type = from.readString();
-        image = from.readString();
-        expectedPointsPerHour = from.readDouble();
-        minPoints = from.readDouble();
-        minPointsPerHour = from.readDouble();
-        maxPoints = from.readDouble();
-        hours = from.readDouble();
-        isTop = from.readInt();
-    }
-
-    public static final Creator<Pattern>
-            CREATOR = new Parcelable.Creator<Pattern>() {
-
-        public Pattern createFromParcel(Parcel in) {
-            return new Pattern(in);
-        }
-
-        public Pattern[] newArray(int size) {
-            return new Pattern[size];
-        }
-    };
-
     public String getType() {
         return type;
     }
@@ -82,9 +55,28 @@ public class Pattern implements Parcelable {
 
     public int getIsTop() { return isTop; }
 
-    public void setIsTop(int value) {
-        this.isTop = value;
+    private Pattern (Parcel from) {
+        type = from.readString();
+        image = from.readString();
+        expectedPointsPerHour = from.readDouble();
+        minPoints = from.readDouble();
+        minPointsPerHour = from.readDouble();
+        maxPoints = from.readDouble();
+        hours = from.readDouble();
+        isTop = from.readInt();
     }
+
+    public static final Creator<Pattern>
+            CREATOR = new Parcelable.Creator<Pattern>() {
+
+        public Pattern createFromParcel(Parcel in) {
+            return new Pattern(in);
+        }
+
+        public Pattern[] newArray(int size) {
+            return new Pattern[size];
+        }
+    };
 
     @Override
     public int describeContents() {
@@ -102,6 +94,4 @@ public class Pattern implements Parcelable {
         dest.writeDouble(hours);
         dest.writeInt(isTop);
     }
-
-
 }

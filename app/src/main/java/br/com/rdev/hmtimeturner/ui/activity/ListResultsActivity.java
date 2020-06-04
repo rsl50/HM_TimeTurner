@@ -14,7 +14,7 @@ import br.com.rdev.hmtimeturner.dao.PatternDAO;
 import br.com.rdev.hmtimeturner.model.Pattern;
 import br.com.rdev.hmtimeturner.ui.adapter.ListResultsAdapter;
 
-import static androidx.recyclerview.widget.RecyclerView.*;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstantes.KEY_RESULTS;
 
 public class ListResultsActivity extends AppCompatActivity {
 
@@ -27,17 +27,19 @@ public class ListResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results);
 
         setTitle(TITLE_APPBAR);
+        loadReceivedResults();
+    }
+
+    private void loadReceivedResults() {
         List<Pattern> allResults = pegaTodasNotas();
 
         Intent receivedData = getIntent();
-        if (receivedData.hasExtra("result")) {
-
+        if (receivedData.hasExtra(KEY_RESULTS)) {
             ArrayList<Pattern> resultPatterns = receivedData.getParcelableArrayListExtra("result");
             allResults.addAll(resultPatterns);
+
+            configuraRecyclerView(allResults);
         }
-
-
-        configuraRecyclerView(allResults);
     }
 
     private List<Pattern> pegaTodasNotas() {

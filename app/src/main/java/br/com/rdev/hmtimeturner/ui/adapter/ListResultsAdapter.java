@@ -3,7 +3,6 @@ package br.com.rdev.hmtimeturner.ui.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +48,6 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
             holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
 
-
         holder.vincula(resultPattern);
     }
 
@@ -86,7 +84,7 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
         private final ImageView pattern_image;
         private final TextView pattern_type;
         private final TextView expected_points_per_hour;
-        private final TextView hours;
+        private final TextView hours_required;
         private final TextView min_points;
         private final TextView min_points_hour;
         private final TextView max_points;
@@ -101,7 +99,7 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
             pattern_type = itemView.findViewById(R.id.item_result_value_pattern_type);
             expected_points_per_hour = itemView.findViewById(R.id.item_result_value_expected_time);
 
-            hours = itemView.findViewById(R.id.item_result_value_hours);
+            hours_required = itemView.findViewById(R.id.item_result_value_hours);
             min_points = itemView.findViewById(R.id.item_result_value_min_points);
             min_points_hour = itemView.findViewById(R.id.item_result_value_min_points_per_hour);
             max_points = itemView.findViewById(R.id.item_result_value_max_points);
@@ -109,12 +107,6 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
 
         public void vincula(Pattern pattern) {
             this.pattern = pattern;
-
-//            if (this.pattern.getIsTop() == 1) {
-//                constraintLayout.setBackgroundColor(Color.parseColor("#FFE70F"));
-//                this.pattern.setIsTop(0);
-//            }
-
             preencheCampos(pattern);
         }
 
@@ -125,7 +117,7 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
             pattern_type.setText(pattern.getType());
             expected_points_per_hour.setText(String.format("%.0f", pattern.getExpectedPointsPerHour()));
 
-            hours.setText(String.format("%.0f", pattern.getHours()));
+            hours_required.setText(String.format("%.0f", pattern.getHours()));
             min_points.setText(String.format("%.0f", pattern.getMinPoints()));
             min_points_hour.setText(String.format("%.0f", pattern.getMinPointsPerHour()));
             max_points.setText(String.format("%.0f", pattern.getMaxPoints()));
