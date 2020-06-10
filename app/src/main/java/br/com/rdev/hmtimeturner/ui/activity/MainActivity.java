@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -161,8 +162,9 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         //spinnerSpecialPattern.setAdapter(adapter);
 
-        CustomSpinnerAdapter customAdapter=new CustomSpinnerAdapter(getApplicationContext(), patternImages, patternNames);
+        CustomSpinnerAdapter customAdapter = new CustomSpinnerAdapter(getApplicationContext(), patternImages, patternNames);
         spinnerSpecialPattern.setAdapter(customAdapter);
+
 
         spinnerSpecialPattern.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

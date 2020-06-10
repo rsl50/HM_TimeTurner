@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Collections;
@@ -43,9 +44,9 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
 
         // Paint top result cards
         if (resultPattern.getIsTop() == 1){
-            holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFF69F"));
+            holder.constraintLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorLineDivider));
         } else {
-            holder.constraintLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            holder.constraintLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorLightDialogBackground));
         }
 
         holder.vincula(resultPattern);

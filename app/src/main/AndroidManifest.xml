@@ -18,7 +18,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.rdev.hmtimeturner.ui.activity.MainActivity" />
         </activity>
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

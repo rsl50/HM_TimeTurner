@@ -3,4 +3,23 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorLightPinkButton">#ce88b6</color>
+    <color name="colorDarkPinkButton">#bf5b94</color>
+
+    <color name="colorLightBlueButton">#6c9bbe</color>
+    <color name="colorDarkBlueButton">#346185</color>
+
+    <color name="colorLightDialogBackground">#0d404b</color>
+    <color name="colorDarkDialogBackground">#10232a</color>
+
+    <color name="colorLineDivider">#25828d</color>
+
+    <color name="colorWhiteLetters">#fffcfe</color>
+    <color name="colorBlueLetters">#a5bcc3</color>
+
+    <color name="colorGoldLetters">#E4CA82</color>
+
+    <color name="colorLightBlue">#0dbdf6</color>
+
 </resources>
