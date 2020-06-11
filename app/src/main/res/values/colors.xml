@@ -10,16 +10,16 @@
     <color name="colorLightBlueButton">#6c9bbe</color>
     <color name="colorDarkBlueButton">#346185</color>
 
-    <color name="colorLightDialogBackground">#0d404b</color>
+    <color name="colorLightDialogBackground">#0D404B</color>
     <color name="colorDarkDialogBackground">#10232a</color>
 
     <color name="colorLineDivider">#25828d</color>
 
-    <color name="colorWhiteLetters">#fffcfe</color>
+    <color name="colorWhiteLetters">#FFFCFE</color>
     <color name="colorBlueLetters">#a5bcc3</color>
 
     <color name="colorGoldLetters">#E4CA82</color>
 
-    <color name="colorLightBlue">#0dbdf6</color>
+    <color name="colorLightBlue">#0DBDF6</color>
 
 </resources>
