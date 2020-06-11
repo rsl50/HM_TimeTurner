@@ -9,18 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.com.rdev.hmtimeturner.R;
-import br.com.rdev.hmtimeturner.model.Calculator;
 
 public class CustomSpinnerAdapter extends BaseAdapter {
     Context context;
     int patternImage[];
     String[] patternsNames;
     LayoutInflater inflater;
-    Calculator calculator;
 
     public CustomSpinnerAdapter(Context context, int[] patternImage, String[] patternsNames) {
-        this.calculator = new Calculator();
-
         this.context = context;
         this.patternImage = patternImage;
         this.patternsNames = patternsNames;

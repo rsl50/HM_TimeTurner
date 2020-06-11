@@ -1,10 +1,17 @@
 package br.com.rdev.hmtimeturner.model;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import br.com.rdev.hmtimeturner.R;
+import br.com.rdev.hmtimeturner.util.Preferences;
+
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SPECIAL_MULTIPLE;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SPECIAL_SELECTED;
 
 public class Calculator {
 
@@ -404,15 +411,30 @@ public class Calculator {
     private static final int END_DOUBLES = 40;
     private static final int START_SINGLES = 41;
     private static final int END_SINGLES = 50;
-    private static final int START_SPECIALS = 51;
+    public static final int START_SPECIALS = 51;
     private static final int END_SPECIALS = PATTERN_QTY;
 
     private static final int RESULT_TOP4 = 1;
     private static final int RESULT_REGULAR = 0;
 
-    public Calculator() {
-        this.SPECIAL_MULTIPLIER = 220;
-        this.CURRENT_SPECIAL_PATTERN = 51;
+    private Context context;
+
+    public Calculator(Context context) {
+        Preferences preferences = new Preferences();
+
+        this.context = context;
+
+        if (preferences.contains(SPECIAL_SELECTED, context)) {
+            setSelectedSpecialPattern(Integer.parseInt(preferences.getPrefs(SPECIAL_SELECTED, context)));
+        } else {
+            setSelectedSpecialPattern(0);
+        }
+
+        if (preferences.contains(SPECIAL_MULTIPLE, context)) {
+            setSelectedSpecialPatternMultiplier(Integer.parseInt(preferences.getPrefs(SPECIAL_MULTIPLE, context)));
+        } else {
+            setSelectedSpecialPatternMultiplier(220);
+        }
     }
 
     private double calculateArraysWithPattern(int[][] pattern, double[][] classesTimes, double[][] nonClassesTimes, double[][] pointsClasses, double[][] pointsNonClasses, double[][] classesTimesInPattern, double[][] nonClassesTimesOutPattern, double[][] pointsInPattern, double[][] pointsOutPattern) {
@@ -474,7 +496,7 @@ public class Calculator {
         this.CURRENT_SPECIAL_PATTERN = value + START_SPECIALS;
     }
 
-    private int getSpecialPattern() {
+    public int getSpecialPattern() {
         return CURRENT_SPECIAL_PATTERN;
     }
 
@@ -514,13 +536,13 @@ public class Calculator {
         String patternType = null;
 
         if (patternNumber >= START_TIPLES && patternNumber <= END_TIPLES) {
-            patternType = "Triplo";
+            patternType = context.getString(R.string.name_triple);
         } else if (patternNumber >= START_DOUBLES && patternNumber <= END_DOUBLES) {
-            patternType = "Duplo";
+            patternType = context.getString(R.string.name_double);
         } else if (patternNumber >= START_SINGLES && patternNumber <= END_SINGLES) {
-            patternType = "Simples";
+            patternType = context.getString(R.string.name_simple);
         } else if (patternNumber >= START_SPECIALS && patternNumber <= END_SPECIALS) {
-            patternType = "Especial";
+            patternType = context.getString(R.string.name_special);
         }
 
         return patternType;

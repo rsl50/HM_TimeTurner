@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 // version information
 def versionMajor = 1
 def versionMinor = 0
-def versionPatch = 2
+def versionPatch = 3
 
 android {
     compileSdkVersion 29

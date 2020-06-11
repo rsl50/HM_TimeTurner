@@ -7,8 +7,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,20 +16,32 @@ import br.com.rdev.hmtimeturner.R;
 import br.com.rdev.hmtimeturner.model.Calculator;
 import br.com.rdev.hmtimeturner.model.Pattern;
 import br.com.rdev.hmtimeturner.ui.adapter.CustomSpinnerAdapter;
+import br.com.rdev.hmtimeturner.util.Preferences;
 
-import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstantes.KEY_RESULTS;
+import static br.com.rdev.hmtimeturner.model.Calculator.START_SPECIALS;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.CLASSES_TIMES;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.DOUBLES;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.KEY_RESULTS;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.NON_CLASSES_TIMES;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.POINTS_CLASSES;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SINGLES;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SPECIALS;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SPECIAL_MULTIPLE;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SPECIAL_SELECTED;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.TRIPLES;
 import static java.util.Locale.US;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private TextView pointsSpecialPattern;
+    private EditText pointsSpecialPattern;
     private int specialPatternSlected;
 
     private EditText[][] classes;
     private EditText[][] nonClasses;
     private EditText[][] pointsForClasses;
     private Calculator calculator;
+    private  Preferences preferences;
 
     public static final String TITLE_APPBAR = "HM Full Marks Time Turner";
 
@@ -42,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle(TITLE_APPBAR);
 
-        calculator = new Calculator();
+        calculator = new Calculator(this);
+        preferences = new Preferences();
 
         initializeEditTexts();
         configureButtons();
@@ -109,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 // Capture Special Pattern set from Interface
                 captureSelectedSpecialPatternData();
                 ArrayList<Pattern> resultPatternsArray = runCalculations();
+
                 goToResults(resultPatternsArray);
             }
         });
@@ -149,28 +161,20 @@ public class MainActivity extends AppCompatActivity {
         pointsSpecialPattern.setText(String.format(US, "%d", calculator.getSpecialPatternMultiplier()));
 
         String[] patternNames = getResources().getStringArray(R.array.special_patterns_names);
-
         int[] patternImages = {R.drawable.pattern_51, R.drawable.pattern_52, R.drawable.pattern_53, R.drawable.pattern_54};
 
         Spinner spinnerSpecialPattern = findViewById(R.id.spinner_special_pattern);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                //R.array.special_patterns_names, android.R.layout.simple_spinner_item);
-                //R.array.special_patterns_names, R.layout.custom_spinner_items);
-        // Specify the layout to use when the list of choices appears
-        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        //spinnerSpecialPattern.setAdapter(adapter);
 
         CustomSpinnerAdapter customAdapter = new CustomSpinnerAdapter(getApplicationContext(), patternImages, patternNames);
         spinnerSpecialPattern.setAdapter(customAdapter);
 
+        spinnerSpecialPattern.setSelection(calculator.getSpecialPattern() - START_SPECIALS);
 
         spinnerSpecialPattern.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 specialPatternSlected = parent.getSelectedItemPosition();
-
+                preferences.setPrefs(SPECIAL_SELECTED, String.format(US, "%d", specialPatternSlected), MainActivity.this);
             }
 
             @Override
@@ -183,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
     private void captureSelectedSpecialPatternData() {
         calculator.setSelectedSpecialPattern(specialPatternSlected);
         calculator.setSelectedSpecialPatternMultiplier(Integer.parseInt(pointsSpecialPattern.getText().toString()));
+
+        preferences.setPrefs(SPECIAL_SELECTED, String.format(US, "%d", specialPatternSlected), this);
+        preferences.setPrefs(SPECIAL_MULTIPLE, pointsSpecialPattern.getText().toString(), this);
     }
 
     private void setBaseArraysValues(double[][] classesTimes, double[][] nonClassesTimes, double[][] pointsClasses, double[][] pointsNonClasses) {
@@ -206,14 +213,19 @@ public class MainActivity extends AppCompatActivity {
         double[][] pointsClasses =  new double[4][4];
         double[][] pointsNonClasses =  new double[4][4];
 
+
         // Set arrays using user input values
         setBaseArraysValues(classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
 
+        preferences.saveArrayToPreferences(CLASSES_TIMES, classesTimes, this);
+        preferences.saveArrayToPreferences(NON_CLASSES_TIMES, nonClassesTimes, this);
+        preferences.saveArrayToPreferences(POINTS_CLASSES, pointsClasses, this);
+
         // Generate lists with calculation results
-        ArrayList<String> bestTripleList = calculator.runCalculations("Triples", classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
-        ArrayList<String> bestDoubleList = calculator.runCalculations("Doubles", classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
-        ArrayList<String> bestSingleList = calculator.runCalculations("Singles", classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
-        ArrayList<String> bestSpecialList = calculator.runCalculations("Specials", classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
+        ArrayList<String> bestTripleList = calculator.runCalculations(TRIPLES, classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
+        ArrayList<String> bestDoubleList = calculator.runCalculations(DOUBLES, classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
+        ArrayList<String> bestSingleList = calculator.runCalculations(SINGLES, classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
+        ArrayList<String> bestSpecialList = calculator.runCalculations(SPECIALS, classesTimes, nonClassesTimes, pointsClasses, pointsNonClasses);
 
         // Log results lists
 //                logList(bestTripleList, "Listagem Triples");
@@ -241,8 +253,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void setTestValues() {
 
+
+    private void setTestValues() {
+        preferences.getArrayFromPreferences(CLASSES_TIMES, classes, this);
+        preferences.getArrayFromPreferences(NON_CLASSES_TIMES, nonClasses, this);
+        preferences.getArrayFromPreferences(POINTS_CLASSES, pointsForClasses, this);
+
+        /*
         classes[0][0].setText("17");
         classes[0][1].setText("0");
         classes[0][2].setText("0");
@@ -304,6 +322,8 @@ public class MainActivity extends AppCompatActivity {
         pointsForClasses[3][1].setText("10");
         pointsForClasses[3][2].setText("10");
         pointsForClasses[3][3].setText("40");
+        */
+
         /*
         classes[0][0].setText("0");
         classes[0][1].setText("0");

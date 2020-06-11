@@ -1,7 +1,6 @@
 package br.com.rdev.hmtimeturner.ui.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Collections;
@@ -44,9 +42,9 @@ public class ListResultsAdapter extends RecyclerView.Adapter<ListResultsAdapter.
 
         // Paint top result cards
         if (resultPattern.getIsTop() == 1){
-            holder.constraintLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorLineDivider));
+            holder.constraintLayout.setBackground(context.getResources().getDrawable(R.drawable.dialog_light));
         } else {
-            holder.constraintLayout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorLightDialogBackground));
+            holder.constraintLayout.setBackground(context.getResources().getDrawable(R.drawable.dialog));
         }
 
         holder.vincula(resultPattern);

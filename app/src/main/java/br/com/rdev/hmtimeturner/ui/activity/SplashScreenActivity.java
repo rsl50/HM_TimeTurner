@@ -1,19 +1,15 @@
 package br.com.rdev.hmtimeturner.ui.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-
-import br.com.rdev.hmtimeturner.R;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.os.Handler;
 
-import static android.content.Context.MODE_PRIVATE;
+import br.com.rdev.hmtimeturner.BuildConfig;
+import br.com.rdev.hmtimeturner.R;
+import br.com.rdev.hmtimeturner.util.Preferences;
 
 public class SplashScreenActivity extends AppCompatActivity {
     public static final String TITULO_APPBAR = "HM Full Marks Time Turner";
@@ -25,33 +21,31 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPBAR);
 
-        SharedPreferences preferences = getSharedPreferences("user_preferences", MODE_PRIVATE);
+        Preferences preferences = new Preferences();
 
-        if (preferences.contains("ja_abriu_app")) {
-            mostraListaPacotes();
+        TextView labelVersion = findViewById(R.id.label_version);
+        labelVersion.setText(BuildConfig.VERSION_NAME);
+
+        if (preferences.contains("ja_abriu_app", this)) {
+            showSplashScreen();
+            //showMainScreen();
         } else {
-            adicionarPreferenceJaAbriu(preferences);
-            mostraSplashScreen();
+            preferences.setPrefs("ja_abriu_app", true, this);
+            showSplashScreen();
         }
     }
 
-    private void adicionarPreferenceJaAbriu(SharedPreferences preferences) {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("ja_abriu_app", true);
-        editor.commit();
-    }
-
-    private void mostraSplashScreen() {
+    private void showSplashScreen() {
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mostraListaPacotes();
+                showMainScreen();
             }
         }, 2000);
     }
 
-    private void mostraListaPacotes() {
+    private void showMainScreen() {
         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
         startActivity(intent);
     }

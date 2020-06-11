@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HMTimeTurner</string>
+    <string name="app_name">HM:TimeTurner</string>
     <string name="title_activity_results">ResultsActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -91,4 +91,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="name_triple">Triplo</string>
+    <string name="name_double">Duplo</string>
+    <string name="name_simple">Simples</string>
+    <string name="name_special">Especial</string>
 </resources>

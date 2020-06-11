@@ -14,7 +14,7 @@ import br.com.rdev.hmtimeturner.dao.PatternDAO;
 import br.com.rdev.hmtimeturner.model.Pattern;
 import br.com.rdev.hmtimeturner.ui.adapter.ListResultsAdapter;
 
-import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstantes.KEY_RESULTS;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.KEY_RESULTS;
 
 public class ListResultsActivity extends AppCompatActivity {
 
