@@ -10,6 +10,7 @@
         android:id="@+id/button_return"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:backgroundTint="@android:color/transparent"
         android:drawableBottom="@android:drawable/arrow_down_float"
         android:drawableTint="@color/colorGoldLetters"
