@@ -95,4 +95,7 @@
     <string name="name_double">Duplo</string>
     <string name="name_simple">Simples</string>
     <string name="name_special">Especial</string>
+
+    <string name="next">Próximo</string>
+    <string name="close">Fechar</string>
 </resources>

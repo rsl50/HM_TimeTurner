@@ -4,15 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightDialogBackground"
+    android:background="@drawable/app_background"
+    android:tileMode="repeat"
     tools:context=".ui.activity.MainActivity">
+
+    <View
+        android:id="@+id/classes_divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@drawable/gradient_line"
+        app:layout_constraintEnd_toEndOf="@+id/class_14"
+        app:layout_constraintStart_toStartOf="@+id/title_classes"
+        app:layout_constraintTop_toBottomOf="@+id/title_classes" />
+
+    <ImageView
+        android:id="@+id/classes_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/class_41"
+        app:layout_constraintEnd_toEndOf="@+id/class_24"
+        app:layout_constraintStart_toStartOf="@+id/classes_divider"
+        app:layout_constraintTop_toBottomOf="@+id/classes_divider"
+        app:srcCompat="@drawable/gradient_oval" />
 
     <TextView
         android:id="@+id/title_classes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/avenir_oblique"
         android:text="Aulas"
         android:textColor="@color/colorGoldLetters"
@@ -29,7 +49,6 @@
         android:fontFamily="@font/arial"
         android:hint="0"
         android:inputType="numberDecimal"
-        android:maxWidth="20dp"
         android:maxLength="3"
         android:textAlignment="center"
         android:textColor="@color/colorWhiteLetters"
@@ -37,9 +56,10 @@
         android:textCursorDrawable="@drawable/cursor"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/title_classes"
-        app:layout_constraintTop_toBottomOf="@+id/title_classes"
+        app:layout_constraintTop_toBottomOf="@+id/classes_divider"
         tools:text="9.9" />
-    <requestFocus />
+
+    <requestFocus android:id="@+id/requestFocus" />
 
     <EditText
         android:id="@+id/class_12"
@@ -332,18 +352,36 @@
         app:layout_constraintTop_toBottomOf="@+id/class_33"
         tools:text="9.9" />
 
+    <View
+        android:id="@+id/nonclasses_divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@drawable/gradient_line"
+        app:layout_constraintEnd_toEndOf="@+id/nonclass_14"
+        app:layout_constraintStart_toStartOf="@+id/title_nonclasses"
+        app:layout_constraintTop_toBottomOf="@+id/title_nonclasses" />
+
+    <ImageView
+        android:id="@+id/nonclasses_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nonclass_41"
+        app:layout_constraintEnd_toEndOf="@+id/nonclass_24"
+        app:layout_constraintStart_toStartOf="@+id/nonclasses_divider"
+        app:layout_constraintTop_toBottomOf="@+id/nonclasses_divider"
+        app:srcCompat="@drawable/gradient_oval" />
 
     <TextView
         android:id="@+id/title_nonclasses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="124dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/avenir_oblique"
         android:text="Não Aulas"
         android:textColor="@color/colorGoldLetters"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/class_14"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -362,7 +400,7 @@
         android:textCursorDrawable="@drawable/cursor"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/title_nonclasses"
-        app:layout_constraintTop_toBottomOf="@+id/title_nonclasses"
+        app:layout_constraintTop_toBottomOf="@+id/nonclasses_divider"
         tools:text="9.9" />
 
     <EditText
@@ -649,13 +687,32 @@
         android:nextFocusDown="@+id/points_11"
         android:textAlignment="center"
         android:textColor="@color/colorWhiteLetters"
+        android:textColorHint="@color/colorBlueLetters"
         android:textCursorDrawable="@drawable/cursor"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/nonclass_43"
         app:layout_constraintTop_toBottomOf="@+id/nonclass_33"
-        tools:text="9.9"
-        android:textColorHint="@color/colorBlueLetters" />
+        tools:text="9.9" />
 
+
+    <View
+        android:id="@+id/points_divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@drawable/gradient_line"
+        app:layout_constraintEnd_toEndOf="@+id/points_14"
+        app:layout_constraintStart_toStartOf="@+id/title_points"
+        app:layout_constraintTop_toBottomOf="@+id/title_points" />
+
+    <ImageView
+        android:id="@+id/points_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/points_41"
+        app:layout_constraintEnd_toEndOf="@+id/points_24"
+        app:layout_constraintStart_toStartOf="@+id/points_divider"
+        app:layout_constraintTop_toBottomOf="@+id/points_divider"
+        app:srcCompat="@drawable/gradient_oval" />
 
     <TextView
         android:id="@+id/title_points"
@@ -685,7 +742,7 @@
         android:textCursorDrawable="@drawable/cursor"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/title_points"
-        app:layout_constraintTop_toBottomOf="@+id/title_points"
+        app:layout_constraintTop_toBottomOf="@+id/points_divider"
         tools:text="9.9" />
 
     <EditText
@@ -984,15 +1041,15 @@
         android:id="@+id/button_run"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/button_pink_bg"
         android:fontFamily="@font/adobetextpro_regular"
         android:text="magick!"
         android:textColor="@color/colorGoldLetters"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button_clear_nonclasses"
-        app:layout_constraintStart_toStartOf="@+id/button_clear_nonclasses"
-        app:layout_constraintTop_toBottomOf="@+id/button_clear_nonclasses" />
+        app:layout_constraintEnd_toEndOf="@+id/button_clear_all"
+        app:layout_constraintStart_toStartOf="@+id/button_clear_all"
+        app:layout_constraintTop_toBottomOf="@+id/button_clear_all" />
 
     <Button
         android:id="@+id/button_clear_classes"
@@ -1034,52 +1091,56 @@
         android:id="@+id/button_clear_all"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:background="@drawable/button_blue_bg"
         android:fontFamily="@font/adobetextpro_bold"
         android:text="Zerar Tudo"
         android:textColor="@color/colorWhiteLetters"
-        app:layout_constraintEnd_toEndOf="@+id/button_run"
-        app:layout_constraintStart_toStartOf="@+id/button_run"
-        app:layout_constraintTop_toBottomOf="@+id/button_run" />
+        app:layout_constraintEnd_toEndOf="@+id/button_clear_nonclasses"
+        app:layout_constraintStart_toStartOf="@+id/points_special_pattern"
+        app:layout_constraintTop_toTopOf="@+id/button_clear_points" />
 
     <TextView
         android:id="@+id/title_special"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/avenir_oblique"
         android:text="Padrão Especial da Rodada:"
         android:textColor="@color/colorGoldLetters"
         android:textColorHint="@color/colorGoldLetters"
-        app:layout_constraintStart_toStartOf="@+id/button_clear_all"
-        app:layout_constraintTop_toBottomOf="@+id/button_clear_all" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button_clear_nonclasses"
+        app:layout_constraintTop_toBottomOf="@+id/button_clear_nonclasses" />
 
     <Spinner
         android:id="@+id/spinner_special_pattern"
-        android:background="@drawable/spinner_rect"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/spinner_rect"
+        android:popupBackground="@color/colorDarkDialogBackground"
         android:nextFocusDown="@+id/points_special_pattern"
+        app:layout_constraintEnd_toEndOf="@+id/button_clear_nonclasses"
         app:layout_constraintStart_toStartOf="@+id/title_special"
         app:layout_constraintTop_toBottomOf="@+id/title_special" />
 
     <TextView
         android:id="@+id/title_special_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/avenir_oblique"
         android:text="Pontos do Padrão Especial:"
         android:textColor="@color/colorGoldLetters"
         android:textColorHint="@color/colorGoldLetters"
-        app:layout_constraintStart_toStartOf="@+id/spinner_special_pattern"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/title_special"
         app:layout_constraintTop_toBottomOf="@+id/spinner_special_pattern" />
 
     <EditText
         android:id="@+id/points_special_pattern"
         android:layout_width="35dp"
         android:layout_height="40dp"
+        android:backgroundTint="@color/colorLightBlue"
         android:ems="10"
         android:hint="0"
         android:inputType="numberDecimal"
@@ -1088,12 +1149,10 @@
         android:textAlignment="center"
         android:textColor="@color/colorWhiteLetters"
         android:textColorHint="@color/colorBlueLetters"
-        android:textSize="14sp"
-        android:backgroundTint="@color/colorLightBlue"
         android:textCursorDrawable="@drawable/cursor"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/title_special_value"
         app:layout_constraintTop_toBottomOf="@+id/title_special_value"
         tools:text="220" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
