@@ -397,7 +397,15 @@ public class Calculator {
             {0, 0, 1, 0},
     };
 
-    private static final int PATTERN_QTY = 54;
+    //PETRIFICUS TOTALUS
+    private static final int[][] PATTERN_55 = new int[][]{
+            {1, 1, 0, 0},
+            {1, 0, 0, 0},
+            {1, 0, 1, 1},
+            {1, 1, 1, 0},
+    };
+
+    private static final int PATTERN_QTY = 55;
 
     private static final int SINGLES_MULTIPLIER = 60;
     private static final int DOUBLES_MULTIPLIER = 140;
@@ -604,6 +612,7 @@ public class Calculator {
             case 52: return PATTERN_52;
             case 53: return PATTERN_53;
             case 54: return PATTERN_54;
+            case 55: return PATTERN_55;
             default: return null;
         }
     }

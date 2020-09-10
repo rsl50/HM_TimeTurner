@@ -1,6 +1,7 @@
 package br.com.rdev.hmtimeturner.ui.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +11,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.elconfidencial.bubbleshowcase.BubbleShowCase;
+
 import java.util.ArrayList;
 
 import br.com.rdev.hmtimeturner.R;
@@ -17,6 +20,9 @@ import br.com.rdev.hmtimeturner.model.Calculator;
 import br.com.rdev.hmtimeturner.model.Pattern;
 import br.com.rdev.hmtimeturner.ui.adapter.CustomSpinnerAdapter;
 import br.com.rdev.hmtimeturner.util.Preferences;
+//import smartdevelop.ir.eram.showcaseviewlib.GuideView;
+//import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
+//import smartdevelop.ir.eram.showcaseviewlib.config.Gravity;
 
 import static br.com.rdev.hmtimeturner.model.Calculator.START_SPECIALS;
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.CLASSES_TIMES;
@@ -31,8 +37,13 @@ import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SPECIAL
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.TRIPLES;
 import static java.util.Locale.US;
 
-public class MainActivity extends AppCompatActivity {
+//import com.github.amlcurran.showcaseview.ShowcaseView;
+//import com.github.amlcurran.showcaseview.targets.Target;
+//import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
+import com.elconfidencial.bubbleshowcase.*;
+
+public class MainActivity extends AppCompatActivity {
 
     private EditText pointsSpecialPattern;
     private int specialPatternSlected;
@@ -42,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText[][] pointsForClasses;
     private Calculator calculator;
     private  Preferences preferences;
+
+    //private ShowcaseView showcaseView;
+    private int counter = 0;
+
+    Button btnMagick;
+    Button btnClearClasses;
+    Button btnClearNonClasses;
+    Button btnClearPoints;
+    Button btnClearAll;
 
     public static final String TITLE_APPBAR = "HM Full Marks Time Turner";
 
@@ -59,7 +79,124 @@ public class MainActivity extends AppCompatActivity {
         configureButtons();
         configureSpinnerSpecial();
         setTestValues();
+
+
+        BubbleShowCaseBuilder first = new BubbleShowCaseBuilder(this) //Activity instance
+                .title("Título") //Any title for the bubble view
+                .description("Descrição") //More detailed description
+                .arrowPosition(BubbleShowCase.ArrowPosition.TOP) //You can force the position of the arrow to change the location of the bubble.
+                .backgroundColor(Color.BLACK) //Bubble background color
+                .textColor(Color.WHITE) //Bubble Text color
+                .titleTextSize(17) //Title text size in SP (default value 16sp)
+                .descriptionTextSize(15) //Subtitle text size in SP (default value 14sp)
+                .image(getResources().getDrawable(R.drawable.app_icon)) //Bubble main image
+                .highlightMode(BubbleShowCase.HighlightMode.VIEW_LAYOUT)
+                .targetView(btnMagick);
+
+        BubbleShowCaseBuilder second = new BubbleShowCaseBuilder(this) //Activity instance
+                .title("Título") //Any title for the bubble view
+                .description("Descrição") //More detailed description
+                .arrowPosition(BubbleShowCase.ArrowPosition.TOP) //You can force the position of the arrow to change the location of the bubble.
+                .backgroundColor(Color.BLACK) //Bubble background color
+                .textColor(Color.WHITE) //Bubble Text color
+                .titleTextSize(17) //Title text size in SP (default value 16sp)
+                .descriptionTextSize(15) //Subtitle text size in SP (default value 14sp)
+                .image(getResources().getDrawable(R.drawable.app_icon)) //Bubble main image
+                .highlightMode(BubbleShowCase.HighlightMode.VIEW_LAYOUT)
+                .targetView(btnClearClasses);
+
+        BubbleShowCaseBuilder third = new BubbleShowCaseBuilder(this) //Activity instance
+                .title("Título") //Any title for the bubble view
+                .description("Descrição") //More detailed description
+                .arrowPosition(BubbleShowCase.ArrowPosition.TOP) //You can force the position of the arrow to change the location of the bubble.
+                .backgroundColor(Color.BLACK) //Bubble background color
+                .textColor(Color.WHITE) //Bubble Text color
+                .titleTextSize(17) //Title text size in SP (default value 16sp)
+                .descriptionTextSize(15) //Subtitle text size in SP (default value 14sp)
+                .image(getResources().getDrawable(R.drawable.app_icon)) //Bubble main image
+                .highlightMode(BubbleShowCase.HighlightMode.VIEW_LAYOUT)
+                .targetView(btnClearAll);
+
+//        new BubbleShowCaseSequence().addShowCase(first)
+//                                    .addShowCase(second)
+//                                    .addShowCase(third)
+//                                    .show();
+
+
+//        new GuideView.Builder(this)
+//                .setTitle("Tutorial")
+//                .setContentText("Guide Description Text\n .....Guide Description Text\n .....Guide Description Text .....")
+//                .setGravity(Gravity.auto) //optional
+//                .setDismissType(DismissType.anywhere) //optional - default DismissType.targetView
+//                .setTargetView(btnMagick)
+//                .setCircleIndicatorSize(100)
+//                .setContentSpan((Spannable) Html.fromHtml("<font color='red'>testing spannable</p>"))
+//                .setContentTextSize(12)//optional
+//                .setTitleTextSize(14)//optional
+//                .build()
+//                .show();
+
+//        RelativeLayout.LayoutParams lps = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        lps.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+//        lps.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+//        int margin = ((Number) (getResources().getDisplayMetrics().density * 12)).intValue();
+//        lps.setMargins(margin, margin, margin, margin);
+
+//        showcaseView = new ShowcaseView.Builder(this)
+//                //.withMaterialShowcase()
+//                .withHoloShowcase()
+//                //.setTarget(new ViewTarget(findViewById(R.id.class_21)))
+//                .setShowcaseDrawer()
+//                .setTarget(Target.NONE)
+//                .setContentTitle("TUTORIAL")
+//                .setContentText("Bem vindo!")
+//                .setStyle(R.style.CustomShowcaseTheme2)
+//                .setOnClickListener(clickFunction)
+//                //.replaceEndButton(R.layout.view_custom_button)
+//                .build();
+//        showcaseView.setButtonText(getString(R.string.next));
+//        showcaseView.setButtonPosition(lps);
     }
+
+//    private void setAlpha(float alpha, View... views) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+//            for (View view : views) {
+//                view.setAlpha(alpha);
+//            }
+//        }
+//    }
+//
+//    private View.OnClickListener clickFunction = new OnClickClass();
+//
+//    private class OnClickClass implements View.OnClickListener {
+//        public void onClick(View v){
+//            switch (counter) {
+//                case 0:
+//                    showcaseView.setShowcase(new ViewTarget(btnMagick), true);
+//                    break;
+//
+//                case 1:
+//                    showcaseView.setShowcase(new ViewTarget(btnClearPoints), true);
+//                    break;
+//
+//                case 2:
+//                    showcaseView.setTarget(Target.NONE);
+//                    showcaseView.setContentTitle("Check it out");
+//                    showcaseView.setContentText("You don't always need a target to showcase");
+//                    showcaseView.setButtonText(getString(R.string.close));
+//                    setAlpha(0.4f, btnMagick, btnClearPoints, btnClearAll);
+//                    break;
+//
+//                case 3:
+//                    showcaseView.hide();
+//                    setAlpha(1.0f, btnMagick, btnClearPoints, btnClearAll);
+//                    break;
+//            }
+//            counter++;
+//        }
+//    }
+
+
 
     private void initializeEditTexts() {
         classes = new EditText[4][4];
@@ -108,11 +245,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configureButtons() {
-        Button btnMagick = findViewById(R.id.button_run);
-        Button btnClearClasses = findViewById(R.id.button_clear_classes);
-        Button btnClearNonClasses = findViewById(R.id.button_clear_nonclasses);
-        Button btnClearPoints = findViewById(R.id.button_clear_points);
-        Button btnClearAll = findViewById(R.id.button_clear_all);
+        btnMagick = findViewById(R.id.button_run);
+        btnClearClasses = findViewById(R.id.button_clear_classes);
+        btnClearNonClasses = findViewById(R.id.button_clear_nonclasses);
+        btnClearPoints = findViewById(R.id.button_clear_points);
+        btnClearAll = findViewById(R.id.button_clear_all);
 
         btnMagick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
         pointsSpecialPattern.setText(String.format(US, "%d", calculator.getSpecialPatternMultiplier()));
 
         String[] patternNames = getResources().getStringArray(R.array.special_patterns_names);
-        int[] patternImages = {R.drawable.pattern_51, R.drawable.pattern_52, R.drawable.pattern_53, R.drawable.pattern_54};
+        int[] patternImages = {R.drawable.pattern_51, R.drawable.pattern_52, R.drawable.pattern_53, R.drawable.pattern_54, R.drawable.pattern_55};
 
         Spinner spinnerSpecialPattern = findViewById(R.id.spinner_special_pattern);
 
