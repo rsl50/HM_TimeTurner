@@ -13,6 +13,7 @@ import br.com.rdev.hmtimeturner.util.Preferences;
 
 public class SplashScreenActivity extends AppCompatActivity {
     public static final String TITULO_APPBAR = "HM Full Marks Time Turner";
+    private Preferences preferences = new Preferences();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +22,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPBAR);
 
-        Preferences preferences = new Preferences();
-
         TextView labelVersion = findViewById(R.id.label_version);
         labelVersion.setText(BuildConfig.VERSION_NAME);
 
         if (preferences.contains("ja_abriu_app", this)) {
             showSplashScreen();
-            //showMainScreen();
         } else {
             preferences.setPrefs("ja_abriu_app", true, this);
             showSplashScreen();
@@ -47,6 +45,12 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     private void showMainScreen() {
         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+
+        if(!preferences.contains("primeira_vez", this)) {
+            preferences.setPrefs("primeira_vez", true, this);
+            intent.putExtra("show_tutorial", true);
+        }
+
         startActivity(intent);
     }
 }

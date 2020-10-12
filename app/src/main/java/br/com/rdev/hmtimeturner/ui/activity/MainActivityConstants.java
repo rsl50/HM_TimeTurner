@@ -2,6 +2,7 @@ package br.com.rdev.hmtimeturner.ui.activity;
 
 public interface MainActivityConstants {
     String KEY_RESULTS = "result";
+    String KEY_TUTORIAL = "show_tutorial";
 
     String CLASSES_TIMES = "classesTimes";
     String NON_CLASSES_TIMES = "nonClassesTimes";

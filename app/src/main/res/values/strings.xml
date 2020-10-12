@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HM:TimeTurner</string>
+    <string name="app_name">Time Turner</string>
     <string name="title_activity_results">ResultsActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -103,7 +103,7 @@
     <string name="tutorial_message_define_hours">Primeiro defina quanto tempo em horas você vai gastar para cada uma das atividades do quadro</string>
     <string name="tutorial_message_class_board">Preencha o quadro com a quantidade de horas das Aulas</string>
     <string name="tutorial_message_nonclass_board">Preencha o quadro com a quantidade de horas das Não Aulas</string>
-    <string name="tutorial_message_points_board">Preencha o quadro com a quantidade de pontos</string>
+    <string name="tutorial_message_points_board">Preencha o quadro com a quantidade de pontos das atividades</string>
     <string name="drawble_time_turner">\@drawable/time_turner</string>
     <string name="drawable_board_example">\@drawable/fullmark_board01</string>
     <string name="drawable_class_board">\@drawable/fullmark_board02</string>

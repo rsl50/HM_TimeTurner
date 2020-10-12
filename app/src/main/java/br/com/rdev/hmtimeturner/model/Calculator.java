@@ -405,7 +405,15 @@ public class Calculator {
             {1, 1, 1, 0},
     };
 
-    private static final int PATTERN_QTY = 55;
+    //REVELIO
+    private static final int[][] PATTERN_56 = new int[][]{
+            {1, 1, 1, 0},
+            {1, 0, 0, 1},
+            {1, 0, 1, 0},
+            {1, 0, 0, 1},
+    };
+
+    private static final int PATTERN_QTY = 56;
 
     private static final int SINGLES_MULTIPLIER = 60;
     private static final int DOUBLES_MULTIPLIER = 140;
@@ -427,10 +435,13 @@ public class Calculator {
 
     private Context context;
 
-    public Calculator(Context context) {
-        Preferences preferences = new Preferences();
+    private ArrayList<int[][]> patternList = new ArrayList<>();
 
+    public Calculator(Context context) {
         this.context = context;
+        populateList();
+
+        Preferences preferences = new Preferences();
 
         if (preferences.contains(SPECIAL_SELECTED, context)) {
             setSelectedSpecialPattern(Integer.parseInt(preferences.getPrefs(SPECIAL_SELECTED, context)));
@@ -556,65 +567,67 @@ public class Calculator {
         return patternType;
     }
 
+    private void populateList(){
+        this.patternList.add(PATTERN_1);
+        this.patternList.add(PATTERN_2);
+        this.patternList.add(PATTERN_3);
+        this.patternList.add(PATTERN_4);
+        this.patternList.add(PATTERN_5);
+        this.patternList.add(PATTERN_6);
+        this.patternList.add(PATTERN_7);
+        this.patternList.add(PATTERN_8);
+        this.patternList.add(PATTERN_9);
+        this.patternList.add(PATTERN_10);
+        this.patternList.add(PATTERN_11);
+        this.patternList.add(PATTERN_12);
+        this.patternList.add(PATTERN_13);
+        this.patternList.add(PATTERN_14);
+        this.patternList.add(PATTERN_15);
+        this.patternList.add(PATTERN_16);
+        this.patternList.add(PATTERN_17);
+        this.patternList.add(PATTERN_18);
+        this.patternList.add(PATTERN_19);
+        this.patternList.add(PATTERN_20);
+        this.patternList.add(PATTERN_21);
+        this.patternList.add(PATTERN_22);
+        this.patternList.add(PATTERN_23);
+        this.patternList.add(PATTERN_24);
+        this.patternList.add(PATTERN_25);
+        this.patternList.add(PATTERN_26);
+        this.patternList.add(PATTERN_27);
+        this.patternList.add(PATTERN_28);
+        this.patternList.add(PATTERN_29);
+        this.patternList.add(PATTERN_30);
+        this.patternList.add(PATTERN_31);
+        this.patternList.add(PATTERN_32);
+        this.patternList.add(PATTERN_33);
+        this.patternList.add(PATTERN_34);
+        this.patternList.add(PATTERN_35);
+        this.patternList.add(PATTERN_36);
+        this.patternList.add(PATTERN_37);
+        this.patternList.add(PATTERN_38);
+        this.patternList.add(PATTERN_39);
+        this.patternList.add(PATTERN_40);
+        this.patternList.add(PATTERN_41);
+        this.patternList.add(PATTERN_42);
+        this.patternList.add(PATTERN_43);
+        this.patternList.add(PATTERN_44);
+        this.patternList.add(PATTERN_45);
+        this.patternList.add(PATTERN_46);
+        this.patternList.add(PATTERN_47);
+        this.patternList.add(PATTERN_48);
+        this.patternList.add(PATTERN_49);
+        this.patternList.add(PATTERN_50);
+        this.patternList.add(PATTERN_51);
+        this.patternList.add(PATTERN_52);
+        this.patternList.add(PATTERN_53);
+        this.patternList.add(PATTERN_54);
+        this.patternList.add(PATTERN_55);
+        this.patternList.add(PATTERN_56);
+    }
+
     private int[][] getTestPattern(int patternNumber) {
-        switch (patternNumber) {
-            case 1: return PATTERN_1;
-            case 2: return PATTERN_2;
-            case 3: return PATTERN_3;
-            case 4: return PATTERN_4;
-            case 5: return PATTERN_5;
-            case 6: return PATTERN_6;
-            case 7: return PATTERN_7;
-            case 8: return PATTERN_8;
-            case 9: return PATTERN_9;
-            case 10: return PATTERN_10;
-            case 11: return PATTERN_11;
-            case 12: return PATTERN_12;
-            case 13: return PATTERN_13;
-            case 14: return PATTERN_14;
-            case 15: return PATTERN_15;
-            case 16: return PATTERN_16;
-            case 17: return PATTERN_17;
-            case 18: return PATTERN_18;
-            case 19: return PATTERN_19;
-            case 20: return PATTERN_20;
-            case 21: return PATTERN_21;
-            case 22: return PATTERN_22;
-            case 23: return PATTERN_23;
-            case 24: return PATTERN_24;
-            case 25: return PATTERN_25;
-            case 26: return PATTERN_26;
-            case 27: return PATTERN_27;
-            case 28: return PATTERN_28;
-            case 29: return PATTERN_29;
-            case 30: return PATTERN_30;
-            case 31: return PATTERN_31;
-            case 32: return PATTERN_32;
-            case 33: return PATTERN_33;
-            case 34: return PATTERN_34;
-            case 35: return PATTERN_35;
-            case 36: return PATTERN_36;
-            case 37: return PATTERN_37;
-            case 38: return PATTERN_38;
-            case 39: return PATTERN_39;
-            case 40: return PATTERN_40;
-            case 41: return PATTERN_41;
-            case 42: return PATTERN_42;
-            case 43: return PATTERN_43;
-            case 44: return PATTERN_44;
-            case 45: return PATTERN_45;
-            case 46: return PATTERN_46;
-            case 47: return PATTERN_47;
-            case 48: return PATTERN_48;
-            case 49: return PATTERN_49;
-            case 50: return PATTERN_50;
-            case 51: return PATTERN_51;
-            case 52: return PATTERN_52;
-            case 53: return PATTERN_53;
-            case 54: return PATTERN_54;
-            case 55: return PATTERN_55;
-            default: return null;
-        }
+        return patternList.get(patternNumber - 1);
     }
 
     public ArrayList<String> runCalculations (String patternType, double[][] classesTimes, double[][] nonClassesTimes, double[][] pointsClasses, double[][] pointsNonClasses) {

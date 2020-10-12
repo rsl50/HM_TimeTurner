@@ -24,6 +24,7 @@ import static br.com.rdev.hmtimeturner.model.Calculator.START_SPECIALS;
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.CLASSES_TIMES;
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.DOUBLES;
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.KEY_RESULTS;
+import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.KEY_TUTORIAL;
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.NON_CLASSES_TIMES;
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.POINTS_CLASSES;
 import static br.com.rdev.hmtimeturner.ui.activity.MainActivityConstants.SINGLES;
@@ -70,6 +71,15 @@ public class MainActivity extends AppCompatActivity {
         configureButtons();
         configureSpinnerSpecial();
         setTestValues();
+
+        checkBeforeShowTutorial();
+    }
+
+    private void checkBeforeShowTutorial() {
+        Intent receivedData = getIntent();
+        if (receivedData.hasExtra(KEY_TUTORIAL) && receivedData.getBooleanExtra(KEY_TUTORIAL, false)) {
+            showTutorialScreen();
+        }
     }
 
     private void showTutorialScreen() {
@@ -192,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         pointsSpecialPattern.setText(String.format(US, "%d", calculator.getSpecialPatternMultiplier()));
 
         String[] patternNames = getResources().getStringArray(R.array.special_patterns_names);
-        int[] patternImages = {R.drawable.pattern_51, R.drawable.pattern_52, R.drawable.pattern_53, R.drawable.pattern_54, R.drawable.pattern_55};
+        int[] patternImages = {R.drawable.pattern_51, R.drawable.pattern_52, R.drawable.pattern_53, R.drawable.pattern_54, R.drawable.pattern_55, R.drawable.pattern_56};
 
         spinnerSpecialPattern = findViewById(R.id.spinner_special_pattern);
 
